@@ -1,8 +1,8 @@
 site_name: Orion-LD API Gateway
-site_url: https://diggsweden.github.io/Orion-Nginx/
+site_url: https://ctu-sematx.github.io/Orion-Nginx/
 site_description: Secure API gateway for FIWARE Orion-LD with JWT authentication and IP-based access control
-repo_url: https://github.com/diggsweden/Orion-Nginx
-repo_name: diggsweden/Orion-Nginx
+repo_url: https://github.com/CTU-SematX/Orion-Nginx
+repo_name: CTU-SematX/Orion-Nginx
 theme:
   name: material
   palette: 

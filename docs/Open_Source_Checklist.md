@@ -1,12 +1,24 @@
  
 
-# The Open Source Checklist
+# Open Source Checklist - Orion-LD API Gateway
 
 ## About
 
-It's easy to overlook important tasks when releasing and maintaining an open source project. This checklist helps ensure your project follows best practices for health, development, and security.
+This checklist ensures the Orion-LD API Gateway project follows best practices for health, development, and security. It serves as a living document to track our progress and maintain high standards for our open source community.
 
-Use this checklist as a discussion starter for your team and a foundation for continuous improvement.
+Use this checklist as a discussion starter for the team and a foundation for continuous improvement.
+
+## Project Status
+
+Current compliance status for Orion-LD API Gateway:
+
+- ✅ Documentation complete (README, Architecture, Usage)
+- ✅ Docker-based deployment ready
+- ✅ Security features implemented (JWT, IP whitelisting)
+- ✅ GitHub Actions CI/CD configured
+- ✅ MkDocs documentation site
+- 🔄 OpenSSF Scorecard monitoring enabled
+- 🔄 Container security scanning active
 
 ## Archiving and Deprecating a Project
 
@@ -16,15 +28,45 @@ Use this checklist as a discussion starter for your team and a foundation for co
 
 ## Documentation
 
-- Must ensure the project includes standard Community Health Files (CHANGELOG, CONTRIBUTING, CODE_OF_CONDUCT, etc.).  
-  See the [README.md Template Files section for a complete list](../README.md).
+### Community Health Files ✅
 
-- Should include usage documentation and architecture descriptions relevant to the project.
+The project includes all standard Community Health Files:
+
+- ✅ [README.md](https://github.com/CTU-SematX/Orion-Nginx#readme) - Comprehensive project documentation
+- ✅ [CONTRIBUTING.md](https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md) - Contribution guidelines
+- ✅ [CODE_OF_CONDUCT.md](https://github.com/CTU-SematX/Orion-Nginx/blob/main/CODE_OF_CONDUCT.md) - Community standards
+- ✅ [SECURITY.md](https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md) - Security policy
+- ✅ [CHANGELOG.md](https://github.com/CTU-SematX/Orion-Nginx/blob/main/CHANGELOG.md) - Version history
+- ✅ [GOVERNANCE.md](https://github.com/CTU-SematX/Orion-Nginx/blob/main/GOVERNANCE.md) - Project governance
+
+### Technical Documentation ✅
+
+- ✅ Installation and Requirements - Docker setup guide
+- ✅ Quick Start Instructions - 3-step deployment process
+- ✅ Usage Examples - Both trusted and non-trusted client scenarios
+- ✅ Architecture Diagram - Visual component flow
+- ✅ Security Model - Two-tier access control explanation
+- ✅ Configuration Guide - Environment variables and customization
+- ✅ Troubleshooting - Common issues and solutions
+- ✅ Development Guide - For contributors
+- ✅ [MkDocs Site](https://ctu-sematx.github.io/Orion-Nginx/) - Published documentation
 
 ## Legal and Licensing
 
-- Must ensure the project's license doesn't conflict with third-party licenses.
-- License declarations must follow the [REUSE licensing specification](https://reuse.software/), ensuring all materials have clear copyright information.
+### License Compliance ✅
+
+- ✅ Project licensed under [CC-BY-4.0](https://github.com/CTU-SematX/Orion-Nginx/blob/main/LICENSES/CC-BY-4.0.txt)
+- ✅ No conflicts with third-party licenses (OpenResty, Orion-LD, MongoDB)
+- ✅ License declarations follow [REUSE specification](https://reuse.software/)
+- ✅ All materials have clear copyright information
+
+### Third-Party Dependencies
+
+- OpenResty (BSD License) - Compatible ✅
+- lua-resty-jwt (Apache 2.0) - Compatible ✅
+- lua-resty-hmac (MIT) - Compatible ✅
+- FIWARE Orion-LD (AGPL-3.0) - Separate container, compatible ✅
+- MongoDB (SSPL) - Separate container, compatible ✅
 
 ### Naming and Trademarks Check
 
@@ -36,67 +78,162 @@ Use this checklist as a discussion starter for your team and a foundation for co
 
 ## People & Maintenance
 
-- Must ensure maintainers have education or experience with open source. For example, reading guides at <https://opensource.guide>.
-- Must ensure maintainers have a plan for handling merge/pull requests (code reviews, etc.).
-- Must ensure maintainers have a plan for community engagement (responding to issues, reviewing pull requests).
-- Must ensure someone is responsible for security issues.
-- Must include a `Maintainer` section in every project README (team, individual, or role).
+### Maintainer Responsibilities ✅
 
-- Should establish a release plan with clear announcement and promotion strategies.
-- Should use a CODEOWNERS file for granular maintenance descriptions (complementing the README's general Maintainer section).
+- ✅ Maintainers listed in README
+- ✅ Security contact designated in SECURITY.md
+- ✅ Pull request workflow defined in CONTRIBUTING.md
+- ✅ Community engagement guidelines in place
+- ✅ Code review process via GitHub Actions
+
+### Release Management 🔄
+
+- ✅ GitHub Actions workflows for releases configured
+- ✅ Semantic versioning ready (v*.*.* tags)
+- ✅ Docker image publishing to ghcr.io
+- ✅ SLSA provenance attestation enabled
+- ✅ SBOM generation configured
+- 🔄 Need to establish regular release cadence
+- 🔄 Consider CODEOWNERS file for component ownership
 
 ## Project Quality
 
-- Must verify that the project has undergone a code review.
-- Should discuss and establish the project's testing goals and ambitions.
-- Should make it easy to use the project - documentation, examples, pre-built releases, etc.
+### Code Quality ✅
+
+- ✅ Initial code review completed
+- ✅ MegaLinter integration in CI pipeline
+- ✅ Docker build testing on pull requests
+- ✅ YAML, Markdown, and Shell script linting
+
+### Ease of Use ✅
+
+- ✅ Docker Compose setup for easy deployment
+- ✅ Simple `start.sh` script for quick start
+- ✅ Comprehensive documentation with examples
+- ✅ Pre-built container images via GitHub Actions
+- ✅ cURL examples for common operations
+- ✅ JWT generation examples in Python and Node.js
+
+### Testing Goals 🔄
+
+Current state:
+
+- ✅ Docker build tests
+- ✅ Docker Compose validation
+- 🔄 Need integration tests for JWT verification
+- 🔄 Need end-to-end API tests
+- 🔄 Consider load testing for production readiness
 
 ## Release and Versioning
 
-- Should use [Semantic Versioning 2.0.0](https://semver.org/) and release tags.
+### Version Strategy ✅
+
+- ✅ [Semantic Versioning 2.0.0](https://semver.org/) implemented
+- ✅ Git tags for releases (v*.*.*)
+- ✅ Support for pre-release versions (alpha, beta, rc)
+- ✅ Automated release workflow via GitHub Actions
+- ✅ Draft releases for review before publishing
+- ✅ Container images tagged with version numbers
+
+### Release Process
+
+Automated via `.github/workflows/release-workflow.yml`:
+
+1. Push version tag (e.g., `v1.0.0`)
+2. GitHub Actions builds container
+3. Generates SBOM and SLSA provenance
+4. Publishes to GitHub Container Registry
+5. Creates draft GitHub release with changelog
 
 ## Security
 
-This part of the checklist is based on the [Open Source Security Foundation (OpenSSF) guide for more secure open source development](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Developing-More-Secure-Software.md), version: 2023-06-14, [(and companion post)](https://openssf.org/blog/2024/04/15/open-source-security-openssf-and-openjs-foundations-issue-alert-for-social-engineering-takeovers-of-open-source-projects/).
+*Based on the [OpenSSF guide for secure open source development](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Developing-More-Secure-Software.md) (2023-06-14) and [social engineering takeover alerts](https://openssf.org/blog/2024/04/15/open-source-security-openssf-and-openjs-foundations-issue-alert-for-social-engineering-takeovers-of-open-source-projects/).*
 
-### General
+### General Security 🔄
 
-- Must use two-factor authentication (2FA) or multifactor authentication (MFA) to make it harder for account takeovers.
-- Must limit merge and push rights to specific branches.
-- Must have enabled branch protection.
-- Must have a practice of signed commits.
+**Repository Protection:**
 
-- Should have a basic knowledge of committers and maintainers, and must do a periodic review of those.
-- Should have automated testing and test coverage practices, including tests for negative cases, to detect bugs and secure the project.
+- 🔄 Enable 2FA/MFA for all maintainers
+- 🔄 Limit merge and push rights to main branch
+- 🔄 Enable branch protection rules
+- 🔄 Require signed commits
+- ✅ OpenSSF Scorecard monitoring enabled
 
-### Contribution
+**Maintainer Review:**
 
-- Should have a practice of code reviews.
-- Should have good readability and scope requirements to ensure new PRs are not obfuscated, and use of opaque binaries is minimized.
+- 🔄 Establish periodic review of committers and maintainers
+- ✅ Automated testing in CI pipeline
+- 🔄 Need test coverage reporting
+- 🔄 Add negative case testing
 
-### Dependencies and Vulnerabilities Detection
+### Contribution Security ✅
 
-- Must use SCA-tools in the CI pipeline to detect vulnerabilities and license incompatibilities.
-- Must use linter tools in the CI pipeline to detect vulnerabilities and bad development practices.
-- Must use secret scanning tools to detect secrets (passwords, logs, tokens).
-- Must use automated tooling to monitor dependency updates for critical vulnerabilities.
-- Must have maintenance to quickly handle updating vulnerabilities.
+- ✅ Code review process defined in CONTRIBUTING.md
+- ✅ Pull request template with checklist
+- ✅ MegaLinter runs on all PRs
+- ✅ Docker build testing before merge
+- ✅ Clear contribution guidelines
+- ✅ No binary files in repository (container-based deployment)
 
-- Should use SAST-tools in the CI pipeline to detect potential vulnerabilities and bad software practices.
-- Should evaluate the health of every new direct project dependency that is added to the project.
-- Should prefer using package managers (at the system, language, and container level) for automatic and consistent dependency updates.
+### Dependencies and Vulnerability Detection
 
-### Publishing
+**Implemented ✅:**
 
-- Must produce an SBOM (Software Bill of Materials) for the project so that end-users and systems can verify vulnerabilities and license incompatibilities.
-- Must limit software publishing rights of artifacts.
+- ✅ Container vulnerability scanning in CI pipeline
+- ✅ MegaLinter for code quality and security
+- ✅ YAML, Shell, and Dockerfile linting
+- ✅ Automated dependency tracking via Dependabot (GitHub)
+- ✅ Package managers used (Alpine APK, OpenResty OPM)
 
-- Should sign any project releases.
-- Should make it easy for end-users to upgrade to new releases. Use semantic versioning, support stable APIs, and flag deprecation early.
+**Dependencies Monitored:**
 
-### Policy
+- ✅ OpenResty base image (Alpine-based)
+- ✅ lua-resty-jwt library
+- ✅ lua-resty-hmac library
+- ✅ Orion-LD container (FIWARE official)
+- ✅ MongoDB container (official)
 
-- Must have a security policy in place - it should contain information about where to report non-disclosure vulnerabilities and the process regarding the report.
+**TODO 🔄:**
+
+- 🔄 Enable GitHub secret scanning
+- 🔄 Add SAST tools (e.g., Trivy, Grype)
+- 🔄 Implement automated security updates
+- 🔄 Add dependency health evaluation process
+
+### Publishing and Distribution ✅
+
+**SBOM and Attestation:**
+
+- ✅ SBOM generation enabled in release workflow
+- ✅ SLSA provenance attestation configured
+- ✅ Container image scanning before publish
+- ✅ Multi-platform builds (AMD64, ARM64)
+
+**Access Control:**
+
+- ✅ Publishing limited to GitHub Actions workflows
+- ✅ Requires repository permissions for releases
+- ✅ Published to GitHub Container Registry (ghcr.io)
+
+**User Experience:**
+
+- ✅ Semantic versioning for clear upgrade paths
+- ✅ Container tags: `latest`, `v1.0.0`, `v1.0`, `v1`
+- ✅ Comprehensive upgrade documentation
+- ✅ Environment variable based configuration (easy updates)
+- 🔄 Consider signing releases with GPG/sigstore
+
+### Security Policy ✅
+
+- ✅ [SECURITY.md](https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md) in place
+- ✅ Vulnerability reporting process documented
+- ✅ Security contact information provided
+- ✅ Response timeline commitments
+- ✅ Responsible disclosure guidelines
+
+---
+
+## Security Resources
 
 Secure software practices and tooling from OpenSSF and OWASP:
 
@@ -116,9 +253,37 @@ Secure software practices and tooling from OpenSSF and OWASP:
 - [OWASP Application Security Verification Standard - ASVS](https://owasp.org/www-project-application-security-verification-standard/).
 - [Supply-chain Levels for Software Artifacts - (SLSA)](https://slsa.dev/).
 
-## Workflows
+## GitHub Workflows ✅
 
-- May discuss your GitHub workflow - a brief summary and suggestion can be found in [CONTRIBUTING - Pull Request Lifecycle](../CONTRIBUTING.md)
+### Automated CI/CD Pipelines
+
+**Pull Request Workflow:**
+
+- ✅ MegaLinter for code quality
+- ✅ Docker build testing
+- ✅ Container security scanning
+- ✅ Automatic on every PR
+
+**Release Workflow:**
+
+- ✅ Triggered by version tags (v*.*.*)
+- ✅ Builds multi-platform containers
+- ✅ Generates SBOM and SLSA provenance
+- ✅ Publishes to GitHub Container Registry
+- ✅ Creates draft release with changelog
+
+**MkDocs Deployment:**
+
+- ✅ Automatic documentation deployment
+- ✅ Deploys to GitHub Pages
+- ✅ Triggered on docs changes
+
+**OpenSSF Scorecard:**
+
+- ✅ Bi-weekly security analysis
+- ✅ Results published to GitHub Security tab
+
+See [CONTRIBUTING](https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md) for detailed workflow information.
 
 ## Specifications and Standards to Follow
 

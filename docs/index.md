@@ -108,18 +108,18 @@ curl -X PATCH "http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:Sensor:001/
 
 ## Documentation
 
-- [README](https://github.com/diggsweden/Orion-Nginx#readme) - Complete project documentation
-- [Security](https://github.com/diggsweden/Orion-Nginx/blob/main/SECURITY.md) - Security policy
-- [Contributing](https://github.com/diggsweden/Orion-Nginx/blob/main/CONTRIBUTING.md) - Contribution guidelines
+- [README](https://github.com/CTU-SematX/Orion-Nginx#readme) - Complete project documentation
+- [Security](https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md) - Security policy
+- [Contributing](https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md) - Contribution guidelines
 - [Open Source Checklist](Open_Source_Checklist.md) - Project compliance checklist
 
 ## Support
 
 If you encounter issues or have questions:
 
-- 📋 [GitHub Issues](https://github.com/diggsweden/Orion-Nginx/issues) - Bug reports and feature requests
-- 🔒 [Security Policy](https://github.com/diggsweden/Orion-Nginx/blob/main/SECURITY.md) - Report security vulnerabilities
-- 💬 [Discussions](https://github.com/diggsweden/Orion-Nginx/discussions) - Community support
+- 📋 [GitHub Issues](https://github.com/CTU-SematX/Orion-Nginx/issues) - Bug reports and feature requests
+- 🔒 [Security Policy](https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md) - Report security vulnerabilities
+- 💬 [Discussions](https://github.com/CTU-SematX/Orion-Nginx/discussions) - Community support
 
 ## License
 
@@ -127,4 +127,4 @@ This project is licensed under the Creative Commons Attribution 4.0 Internationa
 
 ---
 
-For complete installation instructions, usage examples, and configuration options, see the [main README](https://github.com/diggsweden/Orion-Nginx#readme).
+For complete installation instructions, usage examples, and configuration options, see the [main README](https://github.com/CTU-SematX/Orion-Nginx#readme).

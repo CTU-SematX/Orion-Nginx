@@ -14,4 +14,4 @@ containers:
     labels:
       org.opencontainers.image.title: "Orion-LD API Gateway"
       org.opencontainers.image.description: "Secure API gateway for FIWARE Orion-LD with JWT authentication"
-      org.opencontainers.image.vendor: "diggsweden"
+      org.opencontainers.image.vendor: "CTU-SematX"
