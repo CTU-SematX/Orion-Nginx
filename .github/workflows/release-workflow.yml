@@ -29,6 +29,5 @@ jobs:
       release-publisher: github-cli
       release.draft: true
       project-type: other
-      container-file: orion-ld/Dockerfile
-      working-directory: orion-ld
+      container-file: Dockerfile
       container-registry: ghcr.io
