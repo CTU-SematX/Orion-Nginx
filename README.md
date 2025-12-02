@@ -1,6 +1,7 @@
  
 
-# Orion-LD API Gateway
+🌐 English | [Tiếng Việt](./README.vi.md)
+# Orion-Nginx
 
 **Description**: A secure API gateway solution for protecting FIWARE Orion-LD context brokers with JWT-based authentication and IP-based access control. This project provides a proxy layer that ensures only authorized clients can interact with your Orion-LD instance, preventing unauthorized data ingestion and reducing security risks when exposing NGSI-LD APIs to external environments.
 
@@ -445,7 +446,7 @@ General instructions on _how_ to contribute should be stated with a link to [CON
 ### Project Structure
 
 ```text
-orion-ld/
+orion-Nginx/
 ├── docker-compose.yml          # Multi-container orchestration
 ├── Dockerfile                  # Gateway container build definition
 ├── start.sh                    # Startup script for all services
