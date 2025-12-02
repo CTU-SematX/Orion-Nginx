@@ -3,6 +3,26 @@ site_url: https://ctu-sematx.github.io/Orion-Nginx/
 site_description: Secure API gateway for FIWARE Orion-LD with JWT authentication and IP-based access control
 repo_url: https://github.com/CTU-SematX/Orion-Nginx
 repo_name: CTU-SematX/Orion-Nginx
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: vi
+          name: Tiếng Việt
+          build: true
+          nav_translations:
+            Home: Trang chủ
+            Open Source Checklist: Danh sách Kiểm tra Mã nguồn Mở
+
 theme:
   name: material
   palette: 
