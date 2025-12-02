@@ -1,7 +1,7 @@
-# Orion-LD API Gateway
 
-[![en](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
-[![vi](https://img.shields.io/badge/lang-vi-red.svg)](README.vi.md)
+
+🌐 [English](./README.md) | Tiếng Việt
+# Orion-Nginx
 
 **Mô tả**: Giải pháp API gateway bảo mật để bảo vệ FIWARE Orion-LD context brokers với xác thực dựa trên JWT và kiểm soát truy cập dựa trên IP. Dự án này cung cấp một lớp proxy đảm bảo chỉ các client được ủy quyền mới có thể tương tác với Orion-LD instance của bạn, ngăn chặn việc nhập dữ liệu trái phép và giảm rủi ro bảo mật khi expose NGSI-LD APIs ra môi trường bên ngoài.
 
@@ -446,7 +446,7 @@ Hướng dẫn chung về _cách_ đóng góp nên được nêu rõ với liên
 ### Cấu trúc Dự án
 
 ```text
-orion-ld/
+orion-Nginx/
 ├── docker-compose.yml          # Orchestration multi-container
 ├── Dockerfile                  # Gateway container build definition
 ├── start.sh                    # Script khởi động cho tất cả dịch vụ
