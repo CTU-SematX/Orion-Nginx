@@ -6,9 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Secure API gateway for FIWARE Orion-LD with JWT authentication and IP-based access control">
       
       
-        <link rel="canonical" href="https://sitename.example/Open_Source_Checklist/">
+      
+        <link rel="canonical" href="https://ctu-sematx.github.io/Orion-Nginx/Open_Source_Checklist/">
       
       
         <link rel="prev" href="..">
@@ -23,7 +25,7 @@
     
     
       
-        <title>The Open Source Checklist - My Docs</title>
+        <title>Open Source Checklist - Orion-LD API Gateway</title>
       
     
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-open-source-checklist" class="md-skip">
+        <a href="#open-source-checklist-orion-ld-api-gateway" class="md-skip">
           Skip to content
         </a>
       
@@ -86,11 +88,9 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Orion-LD API Gateway" class="md-header__button md-logo" aria-label="Orion-LD API Gateway" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,13 +104,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Orion-LD API Gateway
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The Open Source Checklist
+              Open Source Checklist
             
           </span>
         </div>
@@ -173,6 +173,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -189,6 +191,18 @@
       
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/CTU-SematX/Orion-Nginx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CTU-SematX/Orion-Nginx
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -197,6 +211,55 @@
       
       
         
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Open Source Checklist
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
           
         
       
@@ -211,17 +274,31 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Orion-LD API Gateway" class="md-nav__button md-logo" aria-label="Orion-LD API Gateway" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    My Docs
+    Orion-LD API Gateway
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CTU-SematX/Orion-Nginx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CTU-SematX/Orion-Nginx
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -239,7 +316,7 @@
   <span class="md-ellipsis">
     
   
-    Welcome to MkDocs
+    Home
   
 
     
@@ -275,7 +352,7 @@
   <span class="md-ellipsis">
     
   
-    The Open Source Checklist
+    Open Source Checklist
   
 
     
@@ -293,7 +370,7 @@
   <span class="md-ellipsis">
     
   
-    The Open Source Checklist
+    Open Source Checklist
   
 
     
@@ -330,6 +407,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#project-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#archiving-and-deprecating-a-project" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -349,6 +437,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#community-health-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community Health Files ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Documentation ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -362,6 +478,28 @@
   
     <nav class="md-nav" aria-label="Legal and Licensing">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#license-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License Compliance ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Third-Party Dependencies
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#naming-and-trademarks-check" class="md-nav__link">
@@ -388,6 +526,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="People &amp; Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maintainer-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintainer Responsibilities ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Management 🔄
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -399,6 +565,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Project Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ease-of-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ease of Use ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Goals 🔄
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -409,6 +614,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Release and Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Strategy ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -425,10 +658,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general" class="md-nav__link">
+  <a href="#general-security" class="md-nav__link">
     <span class="md-ellipsis">
       
-        General
+        General Security 🔄
       
     </span>
   </a>
@@ -436,10 +669,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#contribution" class="md-nav__link">
+  <a href="#contribution-security" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contribution
+        Contribution Security ✅
       
     </span>
   </a>
@@ -447,10 +680,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dependencies-and-vulnerabilities-detection" class="md-nav__link">
+  <a href="#dependencies-and-vulnerability-detection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dependencies and Vulnerabilities Detection
+        Dependencies and Vulnerability Detection
       
     </span>
   </a>
@@ -458,10 +691,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
+  <a href="#publishing-and-distribution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Publishing
+        Publishing and Distribution ✅
       
     </span>
   </a>
@@ -469,15 +702,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#policy" class="md-nav__link">
+  <a href="#security-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Policy
+        Security Policy ✅
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Resources">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#tooling" class="md-nav__link">
@@ -507,13 +757,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflows" class="md-nav__link">
+  <a href="#github-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflows
+        GitHub Workflows ✅
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="GitHub Workflows ✅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-cicd-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated CI/CD Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -574,6 +841,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#project-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#archiving-and-deprecating-a-project" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -593,6 +871,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#community-health-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community Health Files ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Documentation ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -606,6 +912,28 @@
   
     <nav class="md-nav" aria-label="Legal and Licensing">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#license-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License Compliance ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Third-Party Dependencies
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#naming-and-trademarks-check" class="md-nav__link">
@@ -632,6 +960,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="People &amp; Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maintainer-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintainer Responsibilities ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Management 🔄
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -643,6 +999,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Project Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ease-of-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ease of Use ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Goals 🔄
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -653,6 +1048,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Release and Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Strategy ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -669,10 +1092,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general" class="md-nav__link">
+  <a href="#general-security" class="md-nav__link">
     <span class="md-ellipsis">
       
-        General
+        General Security 🔄
       
     </span>
   </a>
@@ -680,10 +1103,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#contribution" class="md-nav__link">
+  <a href="#contribution-security" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contribution
+        Contribution Security ✅
       
     </span>
   </a>
@@ -691,10 +1114,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dependencies-and-vulnerabilities-detection" class="md-nav__link">
+  <a href="#dependencies-and-vulnerability-detection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dependencies and Vulnerabilities Detection
+        Dependencies and Vulnerability Detection
       
     </span>
   </a>
@@ -702,10 +1125,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
+  <a href="#publishing-and-distribution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Publishing
+        Publishing and Distribution ✅
       
     </span>
   </a>
@@ -713,15 +1136,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#policy" class="md-nav__link">
+  <a href="#security-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Policy
+        Security Policy ✅
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Resources">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#tooling" class="md-nav__link">
@@ -751,13 +1191,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflows" class="md-nav__link">
+  <a href="#github-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflows
+        GitHub Workflows ✅
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="GitHub Workflows ✅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-cicd-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated CI/CD Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -788,11 +1245,25 @@
                   
 
 
+  
+  
 
-<h1 id="the-open-source-checklist">The Open Source Checklist</h1>
+
+<h1 id="open-source-checklist-orion-ld-api-gateway">Open Source Checklist - Orion-LD API Gateway</h1>
 <h2 id="about">About</h2>
-<p>It's easy to overlook important tasks when releasing and maintaining an open source project. This checklist helps ensure your project follows best practices for health, development, and security.</p>
-<p>Use this checklist as a discussion starter for your team and a foundation for continuous improvement.</p>
+<p>This checklist ensures the Orion-LD API Gateway project follows best practices for health, development, and security. It serves as a living document to track our progress and maintain high standards for our open source community.</p>
+<p>Use this checklist as a discussion starter for the team and a foundation for continuous improvement.</p>
+<h2 id="project-status">Project Status</h2>
+<p>Current compliance status for Orion-LD API Gateway:</p>
+<ul>
+<li>✅ Documentation complete (README, Architecture, Usage)</li>
+<li>✅ Docker-based deployment ready</li>
+<li>✅ Security features implemented (JWT, IP whitelisting)</li>
+<li>✅ GitHub Actions CI/CD configured</li>
+<li>✅ MkDocs documentation site</li>
+<li>🔄 OpenSSF Scorecard monitoring enabled</li>
+<li>🔄 Container security scanning active</li>
+</ul>
 <h2 id="archiving-and-deprecating-a-project">Archiving and Deprecating a Project</h2>
 <ul>
 <li>Should use the platform's "Archival" function. This way, it becomes read-only, including the issues board, and is flagged as inactive.</li>
@@ -800,19 +1271,43 @@
 <li>Should be archived if there are no maintainers.</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
+<h3 id="community-health-files">Community Health Files ✅</h3>
+<p>The project includes all standard Community Health Files:</p>
 <ul>
-<li>
-<p>Must ensure the project includes standard Community Health Files (CHANGELOG, CONTRIBUTING, CODE_OF_CONDUCT, etc.).<br />
-  See the <a href="../README.md">README.md Template Files section for a complete list</a>.</p>
-</li>
-<li>
-<p>Should include usage documentation and architecture descriptions relevant to the project.</p>
-</li>
+<li>✅ <a href="https://github.com/CTU-SematX/Orion-Nginx#readme">README.md</a> - Comprehensive project documentation</li>
+<li>✅ <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> - Contribution guidelines</li>
+<li>✅ <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/CODE_OF_CONDUCT.md">CODE_OF_CONDUCT.md</a> - Community standards</li>
+<li>✅ <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md">SECURITY.md</a> - Security policy</li>
+<li>✅ <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/CHANGELOG.md">CHANGELOG.md</a> - Version history</li>
+<li>✅ <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/GOVERNANCE.md">GOVERNANCE.md</a> - Project governance</li>
+</ul>
+<h3 id="technical-documentation">Technical Documentation ✅</h3>
+<ul>
+<li>✅ Installation and Requirements - Docker setup guide</li>
+<li>✅ Quick Start Instructions - 3-step deployment process</li>
+<li>✅ Usage Examples - Both trusted and non-trusted client scenarios</li>
+<li>✅ Architecture Diagram - Visual component flow</li>
+<li>✅ Security Model - Two-tier access control explanation</li>
+<li>✅ Configuration Guide - Environment variables and customization</li>
+<li>✅ Troubleshooting - Common issues and solutions</li>
+<li>✅ Development Guide - For contributors</li>
+<li>✅ <a href="https://ctu-sematx.github.io/Orion-Nginx/">MkDocs Site</a> - Published documentation</li>
 </ul>
 <h2 id="legal-and-licensing">Legal and Licensing</h2>
+<h3 id="license-compliance">License Compliance ✅</h3>
 <ul>
-<li>Must ensure the project's license doesn't conflict with third-party licenses.</li>
-<li>License declarations must follow the <a href="https://reuse.software/">REUSE licensing specification</a>, ensuring all materials have clear copyright information.</li>
+<li>✅ Project licensed under <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/LICENSES/CC-BY-4.0.txt">CC-BY-4.0</a></li>
+<li>✅ No conflicts with third-party licenses (OpenResty, Orion-LD, MongoDB)</li>
+<li>✅ License declarations follow <a href="https://reuse.software/">REUSE specification</a></li>
+<li>✅ All materials have clear copyright information</li>
+</ul>
+<h3 id="third-party-dependencies">Third-Party Dependencies</h3>
+<ul>
+<li>OpenResty (BSD License) - Compatible ✅</li>
+<li>lua-resty-jwt (Apache 2.0) - Compatible ✅</li>
+<li>lua-resty-hmac (MIT) - Compatible ✅</li>
+<li>FIWARE Orion-LD (AGPL-3.0) - Separate container, compatible ✅</li>
+<li>MongoDB (SSPL) - Separate container, compatible ✅</li>
 </ul>
 <h3 id="naming-and-trademarks-check">Naming and Trademarks Check</h3>
 <ul>
@@ -824,79 +1319,152 @@
 <p><strong>Note</strong>: It might be perfectly acceptable to use a name reminiscent of an existing trademark - if the existing trademark is used for other services/areas and is not recognized as a well-known trademark.</p>
 </blockquote>
 <h2 id="people-maintenance">People &amp; Maintenance</h2>
+<h3 id="maintainer-responsibilities">Maintainer Responsibilities ✅</h3>
 <ul>
-<li>Must ensure maintainers have education or experience with open source. For example, reading guides at <a href="https://opensource.guide">https://opensource.guide</a>.</li>
-<li>Must ensure maintainers have a plan for handling merge/pull requests (code reviews, etc.).</li>
-<li>Must ensure maintainers have a plan for community engagement (responding to issues, reviewing pull requests).</li>
-<li>Must ensure someone is responsible for security issues.</li>
-<li>
-<p>Must include a <code>Maintainer</code> section in every project README (team, individual, or role).</p>
-</li>
-<li>
-<p>Should establish a release plan with clear announcement and promotion strategies.</p>
-</li>
-<li>Should use a CODEOWNERS file for granular maintenance descriptions (complementing the README's general Maintainer section).</li>
+<li>✅ Maintainers listed in README</li>
+<li>✅ Security contact designated in SECURITY.md</li>
+<li>✅ Pull request workflow defined in CONTRIBUTING.md</li>
+<li>✅ Community engagement guidelines in place</li>
+<li>✅ Code review process via GitHub Actions</li>
+</ul>
+<h3 id="release-management">Release Management 🔄</h3>
+<ul>
+<li>✅ GitHub Actions workflows for releases configured</li>
+<li>✅ Semantic versioning ready (v<em>.</em>.* tags)</li>
+<li>✅ Docker image publishing to ghcr.io</li>
+<li>✅ SLSA provenance attestation enabled</li>
+<li>✅ SBOM generation configured</li>
+<li>🔄 Need to establish regular release cadence</li>
+<li>🔄 Consider CODEOWNERS file for component ownership</li>
 </ul>
 <h2 id="project-quality">Project Quality</h2>
+<h3 id="code-quality">Code Quality ✅</h3>
 <ul>
-<li>Must verify that the project has undergone a code review.</li>
-<li>Should discuss and establish the project's testing goals and ambitions.</li>
-<li>Should make it easy to use the project - documentation, examples, pre-built releases, etc.</li>
+<li>✅ Initial code review completed</li>
+<li>✅ MegaLinter integration in CI pipeline</li>
+<li>✅ Docker build testing on pull requests</li>
+<li>✅ YAML, Markdown, and Shell script linting</li>
+</ul>
+<h3 id="ease-of-use">Ease of Use ✅</h3>
+<ul>
+<li>✅ Docker Compose setup for easy deployment</li>
+<li>✅ Simple <code>start.sh</code> script for quick start</li>
+<li>✅ Comprehensive documentation with examples</li>
+<li>✅ Pre-built container images via GitHub Actions</li>
+<li>✅ cURL examples for common operations</li>
+<li>✅ JWT generation examples in Python and Node.js</li>
+</ul>
+<h3 id="testing-goals">Testing Goals 🔄</h3>
+<p>Current state:</p>
+<ul>
+<li>✅ Docker build tests</li>
+<li>✅ Docker Compose validation</li>
+<li>🔄 Need integration tests for JWT verification</li>
+<li>🔄 Need end-to-end API tests</li>
+<li>🔄 Consider load testing for production readiness</li>
 </ul>
 <h2 id="release-and-versioning">Release and Versioning</h2>
+<h3 id="version-strategy">Version Strategy ✅</h3>
 <ul>
-<li>Should use <a href="https://semver.org/">Semantic Versioning 2.0.0</a> and release tags.</li>
+<li>✅ <a href="https://semver.org/">Semantic Versioning 2.0.0</a> implemented</li>
+<li>✅ Git tags for releases (v<em>.</em>.*)</li>
+<li>✅ Support for pre-release versions (alpha, beta, rc)</li>
+<li>✅ Automated release workflow via GitHub Actions</li>
+<li>✅ Draft releases for review before publishing</li>
+<li>✅ Container images tagged with version numbers</li>
 </ul>
+<h3 id="release-process">Release Process</h3>
+<p>Automated via <code>.github/workflows/release-workflow.yml</code>:</p>
+<ol>
+<li>Push version tag (e.g., <code>v1.0.0</code>)</li>
+<li>GitHub Actions builds container</li>
+<li>Generates SBOM and SLSA provenance</li>
+<li>Publishes to GitHub Container Registry</li>
+<li>Creates draft GitHub release with changelog</li>
+</ol>
 <h2 id="security">Security</h2>
-<p>This part of the checklist is based on the <a href="https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Developing-More-Secure-Software.md">Open Source Security Foundation (OpenSSF) guide for more secure open source development</a>, version: 2023-06-14, <a href="https://openssf.org/blog/2024/04/15/open-source-security-openssf-and-openjs-foundations-issue-alert-for-social-engineering-takeovers-of-open-source-projects/">(and companion post)</a>.</p>
-<h3 id="general">General</h3>
+<p><em>Based on the <a href="https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Developing-More-Secure-Software.md">OpenSSF guide for secure open source development</a> (2023-06-14) and <a href="https://openssf.org/blog/2024/04/15/open-source-security-openssf-and-openjs-foundations-issue-alert-for-social-engineering-takeovers-of-open-source-projects/">social engineering takeover alerts</a>.</em></p>
+<h3 id="general-security">General Security 🔄</h3>
+<p><strong>Repository Protection:</strong></p>
 <ul>
-<li>Must use two-factor authentication (2FA) or multifactor authentication (MFA) to make it harder for account takeovers.</li>
-<li>Must limit merge and push rights to specific branches.</li>
-<li>Must have enabled branch protection.</li>
-<li>
-<p>Must have a practice of signed commits.</p>
-</li>
-<li>
-<p>Should have a basic knowledge of committers and maintainers, and must do a periodic review of those.</p>
-</li>
-<li>Should have automated testing and test coverage practices, including tests for negative cases, to detect bugs and secure the project.</li>
+<li>🔄 Enable 2FA/MFA for all maintainers</li>
+<li>🔄 Limit merge and push rights to main branch</li>
+<li>🔄 Enable branch protection rules</li>
+<li>🔄 Require signed commits</li>
+<li>✅ OpenSSF Scorecard monitoring enabled</li>
 </ul>
-<h3 id="contribution">Contribution</h3>
+<p><strong>Maintainer Review:</strong></p>
 <ul>
-<li>Should have a practice of code reviews.</li>
-<li>Should have good readability and scope requirements to ensure new PRs are not obfuscated, and use of opaque binaries is minimized.</li>
+<li>🔄 Establish periodic review of committers and maintainers</li>
+<li>✅ Automated testing in CI pipeline</li>
+<li>🔄 Need test coverage reporting</li>
+<li>🔄 Add negative case testing</li>
 </ul>
-<h3 id="dependencies-and-vulnerabilities-detection">Dependencies and Vulnerabilities Detection</h3>
+<h3 id="contribution-security">Contribution Security ✅</h3>
 <ul>
-<li>Must use SCA-tools in the CI pipeline to detect vulnerabilities and license incompatibilities.</li>
-<li>Must use linter tools in the CI pipeline to detect vulnerabilities and bad development practices.</li>
-<li>Must use secret scanning tools to detect secrets (passwords, logs, tokens).</li>
-<li>Must use automated tooling to monitor dependency updates for critical vulnerabilities.</li>
-<li>
-<p>Must have maintenance to quickly handle updating vulnerabilities.</p>
-</li>
-<li>
-<p>Should use SAST-tools in the CI pipeline to detect potential vulnerabilities and bad software practices.</p>
-</li>
-<li>Should evaluate the health of every new direct project dependency that is added to the project.</li>
-<li>Should prefer using package managers (at the system, language, and container level) for automatic and consistent dependency updates.</li>
+<li>✅ Code review process defined in CONTRIBUTING.md</li>
+<li>✅ Pull request template with checklist</li>
+<li>✅ MegaLinter runs on all PRs</li>
+<li>✅ Docker build testing before merge</li>
+<li>✅ Clear contribution guidelines</li>
+<li>✅ No binary files in repository (container-based deployment)</li>
 </ul>
-<h3 id="publishing">Publishing</h3>
+<h3 id="dependencies-and-vulnerability-detection">Dependencies and Vulnerability Detection</h3>
+<p><strong>Implemented ✅:</strong></p>
 <ul>
-<li>Must produce an SBOM (Software Bill of Materials) for the project so that end-users and systems can verify vulnerabilities and license incompatibilities.</li>
-<li>
-<p>Must limit software publishing rights of artifacts.</p>
-</li>
-<li>
-<p>Should sign any project releases.</p>
-</li>
-<li>Should make it easy for end-users to upgrade to new releases. Use semantic versioning, support stable APIs, and flag deprecation early.</li>
+<li>✅ Container vulnerability scanning in CI pipeline</li>
+<li>✅ MegaLinter for code quality and security</li>
+<li>✅ YAML, Shell, and Dockerfile linting</li>
+<li>✅ Automated dependency tracking via Dependabot (GitHub)</li>
+<li>✅ Package managers used (Alpine APK, OpenResty OPM)</li>
 </ul>
-<h3 id="policy">Policy</h3>
+<p><strong>Dependencies Monitored:</strong></p>
 <ul>
-<li>Must have a security policy in place - it should contain information about where to report non-disclosure vulnerabilities and the process regarding the report.</li>
+<li>✅ OpenResty base image (Alpine-based)</li>
+<li>✅ lua-resty-jwt library</li>
+<li>✅ lua-resty-hmac library</li>
+<li>✅ Orion-LD container (FIWARE official)</li>
+<li>✅ MongoDB container (official)</li>
 </ul>
+<p><strong>TODO 🔄:</strong></p>
+<ul>
+<li>🔄 Enable GitHub secret scanning</li>
+<li>🔄 Add SAST tools (e.g., Trivy, Grype)</li>
+<li>🔄 Implement automated security updates</li>
+<li>🔄 Add dependency health evaluation process</li>
+</ul>
+<h3 id="publishing-and-distribution">Publishing and Distribution ✅</h3>
+<p><strong>SBOM and Attestation:</strong></p>
+<ul>
+<li>✅ SBOM generation enabled in release workflow</li>
+<li>✅ SLSA provenance attestation configured</li>
+<li>✅ Container image scanning before publish</li>
+<li>✅ Multi-platform builds (AMD64, ARM64)</li>
+</ul>
+<p><strong>Access Control:</strong></p>
+<ul>
+<li>✅ Publishing limited to GitHub Actions workflows</li>
+<li>✅ Requires repository permissions for releases</li>
+<li>✅ Published to GitHub Container Registry (ghcr.io)</li>
+</ul>
+<p><strong>User Experience:</strong></p>
+<ul>
+<li>✅ Semantic versioning for clear upgrade paths</li>
+<li>✅ Container tags: <code>latest</code>, <code>v1.0.0</code>, <code>v1.0</code>, <code>v1</code></li>
+<li>✅ Comprehensive upgrade documentation</li>
+<li>✅ Environment variable based configuration (easy updates)</li>
+<li>🔄 Consider signing releases with GPG/sigstore</li>
+</ul>
+<h3 id="security-policy">Security Policy ✅</h3>
+<ul>
+<li>✅ <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md">SECURITY.md</a> in place</li>
+<li>✅ Vulnerability reporting process documented</li>
+<li>✅ Security contact information provided</li>
+<li>✅ Response timeline commitments</li>
+<li>✅ Responsible disclosure guidelines</li>
+</ul>
+<hr />
+<h2 id="security-resources">Security Resources</h2>
 <p>Secure software practices and tooling from OpenSSF and OWASP:</p>
 <h3 id="tooling">Tooling</h3>
 <ul>
@@ -914,10 +1482,35 @@
 <li><a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP Application Security Verification Standard - ASVS</a>.</li>
 <li><a href="https://slsa.dev/">Supply-chain Levels for Software Artifacts - (SLSA)</a>.</li>
 </ul>
-<h2 id="workflows">Workflows</h2>
+<h2 id="github-workflows">GitHub Workflows ✅</h2>
+<h3 id="automated-cicd-pipelines">Automated CI/CD Pipelines</h3>
+<p><strong>Pull Request Workflow:</strong></p>
 <ul>
-<li>May discuss your GitHub workflow - a brief summary and suggestion can be found in <a href="../CONTRIBUTING.md">CONTRIBUTING - Pull Request Lifecycle</a></li>
+<li>✅ MegaLinter for code quality</li>
+<li>✅ Docker build testing</li>
+<li>✅ Container security scanning</li>
+<li>✅ Automatic on every PR</li>
 </ul>
+<p><strong>Release Workflow:</strong></p>
+<ul>
+<li>✅ Triggered by version tags (v<em>.</em>.*)</li>
+<li>✅ Builds multi-platform containers</li>
+<li>✅ Generates SBOM and SLSA provenance</li>
+<li>✅ Publishes to GitHub Container Registry</li>
+<li>✅ Creates draft release with changelog</li>
+</ul>
+<p><strong>MkDocs Deployment:</strong></p>
+<ul>
+<li>✅ Automatic documentation deployment</li>
+<li>✅ Deploys to GitHub Pages</li>
+<li>✅ Triggered on docs changes</li>
+</ul>
+<p><strong>OpenSSF Scorecard:</strong></p>
+<ul>
+<li>✅ Bi-weekly security analysis</li>
+<li>✅ Results published to GitHub Security tab</li>
+</ul>
+<p>See <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md">CONTRIBUTING</a> for detailed workflow information.</p>
 <h2 id="specifications-and-standards-to-follow">Specifications and Standards to Follow</h2>
 <p>The following will help your Open Source Project to be collaborative, reusable, accessible, and up-to-date.</p>
 <ul>
@@ -1015,7 +1608,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>

@@ -6,9 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Secure API gateway for FIWARE Orion-LD with JWT authentication and IP-based access control">
       
       
-        <link rel="canonical" href="https://sitename.example/">
+      
+        <link rel="canonical" href="https://ctu-sematx.github.io/Orion-Nginx/">
       
       
       
@@ -23,7 +25,7 @@
     
     
       
-        <title>My Docs</title>
+        <title>Orion-LD API Gateway</title>
       
     
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#orion-ld-api-gateway" class="md-skip">
           Skip to content
         </a>
       
@@ -86,11 +88,9 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="." title="Orion-LD API Gateway" class="md-header__button md-logo" aria-label="Orion-LD API Gateway" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,13 +104,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Orion-LD API Gateway
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              Home
             
           </span>
         </div>
@@ -173,6 +173,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -189,6 +191,18 @@
       
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/CTU-SematX/Orion-Nginx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CTU-SematX/Orion-Nginx
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -197,6 +211,55 @@
       
       
         
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Open_Source_Checklist/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Open Source Checklist
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
           
         
       
@@ -211,17 +274,31 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="." title="Orion-LD API Gateway" class="md-nav__button md-logo" aria-label="Orion-LD API Gateway" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    My Docs
+    Orion-LD API Gateway
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CTU-SematX/Orion-Nginx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CTU-SematX/Orion-Nginx
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -248,7 +325,7 @@
   <span class="md-ellipsis">
     
   
-    Welcome to MkDocs
+    Home
   
 
     
@@ -266,7 +343,7 @@
   <span class="md-ellipsis">
     
   
-    Welcome to MkDocs
+    Home
   
 
     
@@ -292,10 +369,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commands
+        Overview
       
     </span>
   </a>
@@ -303,10 +380,143 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project layout
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trusted-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusted Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-trusted-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Trusted Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-ingestion-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Ingestion Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External API Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
       
     </span>
   </a>
@@ -335,7 +545,7 @@
   <span class="md-ellipsis">
     
   
-    The Open Source Checklist
+    Open Source Checklist
   
 
     
@@ -375,10 +585,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commands
+        Overview
       
     </span>
   </a>
@@ -386,10 +596,143 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project layout
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trusted-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusted Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-trusted-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Trusted Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-ingestion-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Ingestion Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External API Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
       
     </span>
   </a>
@@ -412,22 +755,137 @@
                   
 
 
+  
+  
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+
+<h1 id="orion-ld-api-gateway">Orion-LD API Gateway</h1>
+<p>A secure API gateway solution for protecting FIWARE Orion-LD context brokers with JWT-based authentication and IP-based access control.</p>
+<h2 id="overview">Overview</h2>
+<p>The Orion-LD API Gateway provides a robust security layer in front of your FIWARE Orion-LD context broker, ensuring that only authorized clients can interact with your NGSI-LD APIs. Built on OpenResty (Nginx + Lua), it offers high-performance request processing with sophisticated access control mechanisms.</p>
+<h2 id="key-features">Key Features</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>🔒 JWT Authentication</strong> - HS256-based token verification for API access control</li>
+<li><strong>🌐 IP Whitelisting</strong> - Configure trusted IP addresses for unrestricted access</li>
+<li><strong>🚫 Method-Level Restrictions</strong> - Fine-grained control over HTTP methods (POST, GET, DELETE, PATCH, PUT)</li>
+<li><strong>🔄 Reverse Proxy</strong> - Seamless proxying to Orion-LD backend</li>
+<li><strong>🐳 Docker Deployment</strong> - Complete stack with MongoDB replica set and Orion-LD</li>
+<li><strong>⚡ High Performance</strong> - Built on OpenResty for minimal latency</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<h2 id="quick-start">Quick Start</h2>
+<p>Get started in 3 easy steps:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Clone the repository</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CTU-SematX/Orion-Nginx.git
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>Orion-Nginx/orion-ld
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 2. Configure environment variables</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>.env<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s">JWT_SECRET=your-secret-key-here</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s">TRUSTED_IP=172.18.0.1</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s">EOF</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 3. Start the services</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>chmod<span class="w"> </span>+x<span class="w"> </span>start.sh
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>./start.sh
+</code></pre></div>
+<p>The gateway will be available at <code>http://localhost:8080</code></p>
+<h2 id="architecture">Architecture</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│   Client    │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>└──────┬──────┘
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>       │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>       ▼
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>┌─────────────────────┐
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  Gateway (Port 8080)│
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  - IP Check         │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  - JWT Verify       │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  - Method Control   │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>└──────┬──────────────┘
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>       │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>       ▼
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>┌─────────────────────┐
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│  Orion-LD (Port 1026)│
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>└──────┬──────────────┘
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>       │
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>       ▼
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>┌─────────────────────┐
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│  MongoDB Replica Set│
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>└─────────────────────┘
+</code></pre></div>
+<h2 id="access-control">Access Control</h2>
+<p>The gateway implements a two-tier security model:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP Method</th>
+<th>Trusted IP</th>
+<th>Non-Trusted IP (JWT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>✅ Allowed</td>
+<td>❌ Forbidden</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>✅ Allowed</td>
+<td>❌ Forbidden</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>✅ Allowed</td>
+<td>✅ Allowed</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>✅ Allowed</td>
+<td>✅ Allowed</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>✅ Allowed</td>
+<td>❌ Forbidden</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trusted-clients">Trusted Clients</h3>
+<p>Clients originating from the configured <code>TRUSTED_IP</code> have full access to all operations without authentication. This is ideal for internal data ingestion services.</p>
+<h3 id="non-trusted-clients">Non-Trusted Clients</h3>
+<p>All other clients must provide a valid JWT token and are restricted to PATCH and PUT operations only. This ensures external clients can update data but cannot create or delete entities.</p>
+<h2 id="use-cases">Use Cases</h2>
+<h3 id="data-ingestion-pipeline">Data Ingestion Pipeline</h3>
+<p>Use the trusted IP feature for your internal ETL processes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;http://localhost:8080/ngsi-ld/v1/entities&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/ld+json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;id&quot;:&quot;urn:ngsi-ld:Sensor:001&quot;,&quot;type&quot;:&quot;Sensor&quot;,&quot;temperature&quot;:{&quot;type&quot;:&quot;Property&quot;,&quot;value&quot;:23.5}}&#39;</span>
+</code></pre></div>
+<h3 id="external-api-access">External API Access</h3>
+<p>Provide controlled access to external partners with JWT tokens:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>PATCH<span class="w"> </span><span class="s2">&quot;http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:Sensor:001/attrs&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$JWT_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/ld+json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;temperature&quot;:{&quot;type&quot;:&quot;Property&quot;,&quot;value&quot;:24.2}}&#39;</span>
+</code></pre></div>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://github.com/CTU-SematX/Orion-Nginx#readme">README</a> - Complete project documentation</li>
+<li><a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md">Security</a> - Security policy</li>
+<li><a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md">Contributing</a> - Contribution guidelines</li>
+<li><a href="Open_Source_Checklist/">Open Source Checklist</a> - Project compliance checklist</li>
+</ul>
+<h2 id="support">Support</h2>
+<p>If you encounter issues or have questions:</p>
+<ul>
+<li>📋 <a href="https://github.com/CTU-SematX/Orion-Nginx/issues">GitHub Issues</a> - Bug reports and feature requests</li>
+<li>🔒 <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/SECURITY.md">Security Policy</a> - Report security vulnerabilities</li>
+<li>💬 <a href="https://github.com/CTU-SematX/Orion-Nginx/discussions">Discussions</a> - Community support</li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is licensed under the Creative Commons Attribution 4.0 International License.</p>
+<hr />
+<p>For complete installation instructions, usage examples, and configuration options, see the <a href="https://github.com/CTU-SematX/Orion-Nginx#readme">main README</a>.</p>
 
 
 
@@ -477,7 +935,7 @@ docs/
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
