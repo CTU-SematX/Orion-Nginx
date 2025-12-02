@@ -2,13 +2,19 @@ name: Docker Build Test
 on:
   pull_request:
     paths:
-      - 'orion-ld/**'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - 'nginx/**'
+      - 'lualib/**'
       - '.github/workflows/docker-build-test.yml'
   push:
     branches:
       - main
     paths:
-      - 'orion-ld/**'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - 'nginx/**'
+      - 'lualib/**'
       - '.github/workflows/docker-build-test.yml'
 
 permissions:
@@ -28,8 +34,8 @@ jobs:
       - name: Build Gateway Container
         uses: docker/build-push-action@v6
         with:
-          context: ./orion-ld
-          file: ./orion-ld/Dockerfile
+          context: .
+          file: ./Dockerfile
           platforms: linux/amd64
           push: false
           tags: orion-ld-gateway:test
@@ -37,6 +43,4 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Test Docker Compose Configuration
-        run: |
-          cd orion-ld
-          docker compose config
+        run: docker compose config

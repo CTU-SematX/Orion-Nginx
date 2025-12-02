@@ -17,5 +17,5 @@ jobs:
     secrets: inherit
     with:
       project-type: other
-      container-file: orion-ld/Dockerfile
+      container-file: Dockerfile
       linters.megalint: true

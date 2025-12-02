@@ -13,6 +13,5 @@ jobs:
     secrets: inherit
     with:
       project-type: other
-      container-file: orion-ld/Dockerfile
-      working-directory: orion-ld
+      container-file: Dockerfile
       container-registry: ghcr.io
