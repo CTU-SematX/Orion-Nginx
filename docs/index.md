@@ -22,20 +22,32 @@ Get started in 3 easy steps:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/CTU-SematX/Orion-Nginx.git
-cd Orion-Nginx/orion-ld
+cd Orion-Nginx
 
-# 2. Configure environment variables
-cat > .env << EOF
-JWT_SECRET=your-secret-key-here
-TRUSTED_IP=172.18.0.1
-EOF
+# 2. Setup environment configuration
+make setup
+# Edit .env file to update JWT_SECRET and TRUSTED_IP
 
 # 3. Start the services
-chmod +x start.sh
-./start.sh
+make start
 ```
 
 The gateway will be available at `http://localhost:8080`
+
+### Makefile Commands
+
+The project includes a Makefile for easy deployment:
+
+```bash
+make help      # View all available commands
+make setup     # Create .env file with defaults
+make start     # Start all services
+make stop      # Stop all services
+make restart   # Restart all services
+make logs      # View logs from all services
+make status    # Show service status
+make clean     # Remove all data (WARNING: deletes volumes)
+```
 
 ## Architecture
 

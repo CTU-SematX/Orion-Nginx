@@ -49,12 +49,18 @@ The gateway consists of three main components:
 
    ```bash
    git clone <repository-url>
-   cd Orion-Nginx/orion-ld
+   cd Orion-Nginx
    ```
 
 2. **Set up environment variables**
 
-   Create a `.env` file in the `orion-ld` directory:
+   Use the Makefile to create the `.env` file:
+
+   ```bash
+   make setup
+   ```
+
+   Then edit the `.env` file to update the values:
 
    ```bash
    JWT_SECRET=your-secret-key-here
@@ -64,47 +70,44 @@ The gateway consists of three main components:
    > Replace `your-secret-key-here` with a strong secret for JWT signing
    > Replace `TRUSTED_IP` with the IP address of your trusted client
 
-3. **Build and start the services**
+3. **Start the services**
 
    ```bash
-   chmod +x start.sh
-   ./start.sh
+   make start
    ```
 
-   This script will:
+   This command will:
    - Start MongoDB and initialize the replica set
    - Start Orion-LD context broker
    - Build and start the gateway proxy
-
-4. **Verify the installation**
-
-   ```bash
-   # Check if all services are running
-   docker compose ps
-   
-   # Test the gateway endpoint
-   curl http://localhost:8080/version
-   ```
 
 The gateway will be available at `http://localhost:8080`
 
 ### Managing Services
 
+Use these Makefile commands to manage your deployment:
+
 ```bash
+# View all available commands
+make help
+
+# Start all services
+make start
+
 # Stop all services
-docker compose down
+make stop
 
-# Stop and remove volumes (WARNING: deletes all data)
-docker compose down -v
+# Restart all services
+make restart
 
-# Restart a specific service
-docker compose restart gateway
-
-# View service logs
-docker compose logs -f
+# View logs from all services
+make logs
 
 # Check service status
-docker compose ps
+make status
+
+# Remove all data (WARNING: deletes everything)
+make clean
 ```
 
 ## Usage
