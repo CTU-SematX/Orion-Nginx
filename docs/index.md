@@ -1,17 +1,130 @@
-# Welcome to MkDocs
+# Orion-LD API Gateway
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+A secure API gateway solution for protecting FIWARE Orion-LD context brokers with JWT-based authentication and IP-based access control.
 
-## Commands
+## Overview
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+The Orion-LD API Gateway provides a robust security layer in front of your FIWARE Orion-LD context broker, ensuring that only authorized clients can interact with your NGSI-LD APIs. Built on OpenResty (Nginx + Lua), it offers high-performance request processing with sophisticated access control mechanisms.
 
-## Project layout
+## Key Features
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- **🔒 JWT Authentication** - HS256-based token verification for API access control
+- **🌐 IP Whitelisting** - Configure trusted IP addresses for unrestricted access
+- **🚫 Method-Level Restrictions** - Fine-grained control over HTTP methods (POST, GET, DELETE, PATCH, PUT)
+- **🔄 Reverse Proxy** - Seamless proxying to Orion-LD backend
+- **🐳 Docker Deployment** - Complete stack with MongoDB replica set and Orion-LD
+- **⚡ High Performance** - Built on OpenResty for minimal latency
+
+## Quick Start
+
+Get started in 3 easy steps:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/diggsweden/Orion-Nginx.git
+cd Orion-Nginx/orion-ld
+
+# 2. Configure environment variables
+cat > .env << EOF
+JWT_SECRET=your-secret-key-here
+TRUSTED_IP=172.18.0.1
+EOF
+
+# 3. Start the services
+chmod +x start.sh
+./start.sh
+```
+
+The gateway will be available at `http://localhost:8080`
+
+## Architecture
+
+```text
+┌─────────────┐
+│   Client    │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────────┐
+│  Gateway (Port 8080)│
+│  - IP Check         │
+│  - JWT Verify       │
+│  - Method Control   │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│  Orion-LD (Port 1026)│
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│  MongoDB Replica Set│
+└─────────────────────┘
+```
+
+## Access Control
+
+The gateway implements a two-tier security model:
+
+| HTTP Method | Trusted IP | Non-Trusted IP (JWT) |
+|-------------|------------|----------------------|
+| GET         | ✅ Allowed | ❌ Forbidden         |
+| POST        | ✅ Allowed | ❌ Forbidden         |
+| PATCH       | ✅ Allowed | ✅ Allowed           |
+| PUT         | ✅ Allowed | ✅ Allowed           |
+| DELETE      | ✅ Allowed | ❌ Forbidden         |
+
+### Trusted Clients
+
+Clients originating from the configured `TRUSTED_IP` have full access to all operations without authentication. This is ideal for internal data ingestion services.
+
+### Non-Trusted Clients
+
+All other clients must provide a valid JWT token and are restricted to PATCH and PUT operations only. This ensures external clients can update data but cannot create or delete entities.
+
+## Use Cases
+
+### Data Ingestion Pipeline
+
+Use the trusted IP feature for your internal ETL processes:
+
+```bash
+curl -X POST "http://gateway:8080/ngsi-ld/v1/entities" \
+  -H "Content-Type: application/ld+json" \
+  -d '{"id":"urn:ngsi-ld:Sensor:001","type":"Sensor","temperature":{"type":"Property","value":23.5}}'
+```
+
+### External API Access
+
+Provide controlled access to external partners with JWT tokens:
+
+```bash
+curl -X PATCH "http://gateway:8080/ngsi-ld/v1/entities/urn:ngsi-ld:Sensor:001/attrs" \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -H "Content-Type: application/ld+json" \
+  -d '{"temperature":{"type":"Property","value":24.2}}'
+```
+
+## Documentation
+
+- [README](https://github.com/diggsweden/Orion-Nginx#readme) - Complete project documentation
+- [Security](https://github.com/diggsweden/Orion-Nginx/blob/main/SECURITY.md) - Security policy
+- [Contributing](https://github.com/diggsweden/Orion-Nginx/blob/main/CONTRIBUTING.md) - Contribution guidelines
+- [Open Source Checklist](Open_Source_Checklist.md) - Project compliance checklist
+
+## Support
+
+If you encounter issues or have questions:
+
+- 📋 [GitHub Issues](https://github.com/diggsweden/Orion-Nginx/issues) - Bug reports and feature requests
+- 🔒 [Security Policy](https://github.com/diggsweden/Orion-Nginx/blob/main/SECURITY.md) - Report security vulnerabilities
+- 💬 [Discussions](https://github.com/diggsweden/Orion-Nginx/discussions) - Community support
+
+## License
+
+This project is licensed under the Creative Commons Attribution 4.0 International License.
+
+---
+
+For complete installation instructions, usage examples, and configuration options, see the [main README](https://github.com/diggsweden/Orion-Nginx#readme).

@@ -1,5 +1,8 @@
-site_name: My Docs
-site_url: https://sitename.example
+site_name: Orion-LD API Gateway
+site_url: https://diggsweden.github.io/Orion-Nginx/
+site_description: Secure API gateway for FIWARE Orion-LD with JWT authentication and IP-based access control
+repo_url: https://github.com/diggsweden/Orion-Nginx
+repo_name: diggsweden/Orion-Nginx
 theme:
   name: material
   palette: 
@@ -21,3 +24,28 @@ theme:
   font:
     text: Merriweather Sans
     code: Red Hat Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Open Source Checklist: Open_Source_Checklist.md

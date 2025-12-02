@@ -16,12 +16,6 @@ jobs:
       security-events: write
     secrets: inherit
     with:
-      # This template is documentation/reference - not a buildable project
-      # Projects using this template should set their actual type:
-      # maven, npm, gradle, python, go, rust
-      project-type: maven
-      # Use just+mise-based linting (lightweight, uses .mise.toml + justfile)
-      linters.justmiselint: true
-      # Disable heavy MegaLinter (optional - keep both if needed)
-      linters.megalint: false
-      # Other linters remain enabled by default
+      project-type: other
+      container-file: orion-ld/Dockerfile
+      linters.megalint: true
