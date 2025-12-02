@@ -44,9 +44,7 @@ jobs:
             mkdocs-material-
 
       - name: Install MkDocs and dependencies
-        run: |
-          pip install mkdocs-material
-          pip install pymdown-extensions
+        run: pip install -r requirements.txt
 
       - name: Build documentation
         run: mkdocs build --strict
