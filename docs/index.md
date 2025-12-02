@@ -21,7 +21,7 @@ Get started in 3 easy steps:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/diggsweden/Orion-Nginx.git
+git clone https://github.com/CTU-SematX/Orion-Nginx.git
 cd Orion-Nginx/orion-ld
 
 # 2. Configure environment variables
@@ -90,7 +90,7 @@ All other clients must provide a valid JWT token and are restricted to PATCH and
 Use the trusted IP feature for your internal ETL processes:
 
 ```bash
-curl -X POST "http://gateway:8080/ngsi-ld/v1/entities" \
+curl -X POST "http://localhost:8080/ngsi-ld/v1/entities" \
   -H "Content-Type: application/ld+json" \
   -d '{"id":"urn:ngsi-ld:Sensor:001","type":"Sensor","temperature":{"type":"Property","value":23.5}}'
 ```
@@ -100,7 +100,7 @@ curl -X POST "http://gateway:8080/ngsi-ld/v1/entities" \
 Provide controlled access to external partners with JWT tokens:
 
 ```bash
-curl -X PATCH "http://gateway:8080/ngsi-ld/v1/entities/urn:ngsi-ld:Sensor:001/attrs" \
+curl -X PATCH "http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:Sensor:001/attrs" \
   -H "Authorization: Bearer $JWT_TOKEN" \
   -H "Content-Type: application/ld+json" \
   -d '{"temperature":{"type":"Property","value":24.2}}'
