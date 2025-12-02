@@ -352,15 +352,15 @@ docker inspect <container-name> | grep IPAddress
 
 Cấu hình gateway nằm ở:
 
-- Cấu hình chính: `orion-ld/nginx/nginx.conf`
-- Quy tắc gateway: `orion-ld/nginx/conf.d/gateway.conf`
-- Xác thực JWT: `orion-ld/lualib/jwt_verify.lua`
+- Cấu hình chính: `docker/nginx/nginx.conf`
+- Quy tắc gateway: `docker/nginx/conf.d/gateway.conf`
+- Xác thực JWT: `docker/lualib/jwt_verify.lua`
 
 Để sửa đổi quy tắc truy cập, chỉnh sửa `gateway.conf` và rebuild gateway container:
 
 ```bash
-docker compose build gateway
-docker compose up -d gateway
+docker compose -f docker/docker-compose.yml build gateway
+docker compose -f docker/docker-compose.yml up -d gateway
 ```
 
 ## Các Vấn đề Đã Biết
@@ -446,21 +446,35 @@ Hướng dẫn chung về _cách_ đóng góp nên được nêu rõ với liên
 ### Cấu trúc Dự án
 
 ```text
-orion-Nginx/
-├── docker-compose.yml          # Orchestration multi-container
-├── Dockerfile                  # Gateway container build definition
-├── start.sh                    # Script khởi động cho tất cả dịch vụ
-├── lualib/
-│   └── jwt_verify.lua         # Logic xác thực JWT
-└── nginx/
-    ├── nginx.conf             # Cấu hình Nginx chính
-    └── conf.d/
-        └── gateway.conf       # Gateway routing và kiểm soát truy cập
+Orion-Nginx/
+├── Makefile                    # Các lệnh build và quản lý
+├── README.md                   # Tài liệu chính
+├── README.vi.md                # Tài liệu tiếng Việt
+├── LICENSE                     # Giấy phép dự án
+├── SECURITY.md                 # Hướng dẫn báo cáo bảo mật
+├── CODE_OF_CONDUCT.md          # Quy tắc cộng đồng
+├── CONTRIBUTING.md             # Hướng dẫn đóng góp
+├── GOVERNANCE.md               # Quản trị dự án
+├── docker/                     # Các file Docker
+│   ├── docker-compose.yml      # Orchestration multi-container
+│   ├── Dockerfile              # Gateway container build definition
+│   ├── .env.example            # Template biến môi trường
+│   ├── lualib/
+│   │   └── jwt_verify.lua      # Logic xác thực JWT
+│   └── nginx/
+│       ├── nginx.conf          # Cấu hình Nginx chính
+│       └── conf.d/
+│           └── gateway.conf    # Gateway routing và kiểm soát truy cập
+├── docs/                       # Tài liệu MkDocs
+│   ├── en/                     # Tài liệu tiếng Anh
+│   └── vi/                     # Tài liệu tiếng Việt
+├── mkdocs.yml                  # Cấu hình MkDocs
+└── requirements.txt            # Dependencies Python cho docs
 ```
 
 ### Sửa đổi Logic Kiểm soát Truy cập
 
-Logic kiểm soát truy cập chính nằm trong `nginx/conf.d/gateway.conf`:
+Logic kiểm soát truy cập chính nằm trong `docker/nginx/conf.d/gateway.conf`:
 
 ```lua
 -- Ví dụ: Thêm phương thức được phép mới cho IP không đáng tin cậy
@@ -474,7 +488,7 @@ end
 ### Build Custom Gateway Image
 
 ```bash
-cd orion-ld
+cd docker
 
 # Build gateway với custom tag
 docker compose build gateway --build-arg CUSTOM_ARG=value
@@ -500,7 +514,7 @@ docker exec -it gateway /usr/local/openresty/bin/resty /usr/local/openresty/site
 
 Để thêm thư viện Lua mới:
 
-1. Cập nhật `Dockerfile`:
+1. Cập nhật `docker/Dockerfile`:
 
    ```dockerfile
    RUN /usr/local/openresty/bin/opm get <package-name>
@@ -509,7 +523,7 @@ docker exec -it gateway /usr/local/openresty/bin/resty /usr/local/openresty/site
 2. Rebuild container:
 
    ```bash
-   docker compose build gateway
+   docker compose -f docker/docker-compose.yml build gateway
    ```
 
 Để biết hướng dẫn phát triển chi tiết hơn, xem [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -518,7 +532,7 @@ docker exec -it gateway /usr/local/openresty/bin/resty /usr/local/openresty/site
 
 ## Giấy phép
 
-Dự án này được cấp phép theo Giấy phép Creative Commons Attribution 4.0 International - xem file [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt) để biết chi tiết.
+Dự án này được cấp phép theo Giấy phép Apache License 2.0 - xem file [LICENSE](LICENSE) để biết chi tiết.
 
 ---
 

@@ -352,15 +352,15 @@ docker inspect <container-name> | grep IPAddress
 
 The gateway configuration is located in:
 
-- Main config: `orion-ld/nginx/nginx.conf`
-- Gateway rules: `orion-ld/nginx/conf.d/gateway.conf`
-- JWT verification: `orion-ld/lualib/jwt_verify.lua`
+- Main config: `docker/nginx/nginx.conf`
+- Gateway rules: `docker/nginx/conf.d/gateway.conf`
+- JWT verification: `docker/lualib/jwt_verify.lua`
 
 To modify access rules, edit `gateway.conf` and rebuild the gateway container:
 
 ```bash
-docker compose build gateway
-docker compose up -d gateway
+docker compose -f docker/docker-compose.yml build gateway
+docker compose -f docker/docker-compose.yml up -d gateway
 ```
 
 ## Known issues
@@ -446,21 +446,35 @@ General instructions on _how_ to contribute should be stated with a link to [CON
 ### Project Structure
 
 ```text
-orion-ld/
-├── docker-compose.yml          # Multi-container orchestration
-├── Dockerfile                  # Gateway container build definition
-├── start.sh                    # Startup script for all services
-├── lualib/
-│   └── jwt_verify.lua         # JWT verification logic
-└── nginx/
-    ├── nginx.conf             # Main Nginx configuration
-    └── conf.d/
-        └── gateway.conf       # Gateway routing and access control
+Orion-Nginx/
+├── Makefile                    # Build and management commands
+├── README.md                   # Main documentation
+├── README.vi.md                # Vietnamese documentation
+├── LICENSE                     # Project license
+├── SECURITY.md                 # Security reporting guidelines
+├── CODE_OF_CONDUCT.md          # Community guidelines
+├── CONTRIBUTING.md             # Contribution guidelines
+├── GOVERNANCE.md               # Project governance
+├── docker/                     # Docker-related files
+│   ├── docker-compose.yml      # Multi-container orchestration
+│   ├── Dockerfile              # Gateway container build definition
+│   ├── .env.example            # Environment variables template
+│   ├── lualib/
+│   │   └── jwt_verify.lua      # JWT verification logic
+│   └── nginx/
+│       ├── nginx.conf          # Main Nginx configuration
+│       └── conf.d/
+│           └── gateway.conf    # Gateway routing and access control
+├── docs/                       # MkDocs documentation
+│   ├── en/                     # English documentation
+│   └── vi/                     # Vietnamese documentation
+├── mkdocs.yml                  # MkDocs configuration
+└── requirements.txt            # Python dependencies for docs
 ```
 
 ### Modifying Access Control Logic
 
-The main access control logic is in `nginx/conf.d/gateway.conf`:
+The main access control logic is in `docker/nginx/conf.d/gateway.conf`:
 
 ```lua
 -- Example: Adding a new allowed method for non-trusted IPs
@@ -474,7 +488,7 @@ end
 ### Building Custom Gateway Image
 
 ```bash
-cd orion-ld
+cd docker
 
 # Build gateway with custom tag
 docker compose build gateway --build-arg CUSTOM_ARG=value
@@ -500,7 +514,7 @@ docker exec -it gateway /usr/local/openresty/bin/resty /usr/local/openresty/site
 
 To add new Lua libraries:
 
-1. Update `Dockerfile`:
+1. Update `docker/Dockerfile`:
 
    ```dockerfile
    RUN /usr/local/openresty/bin/opm get <package-name>
@@ -509,7 +523,7 @@ To add new Lua libraries:
 2. Rebuild container:
 
    ```bash
-   docker compose build gateway
+   docker compose -f docker/docker-compose.yml build gateway
    ```
 
 For more detailed development guidelines, see [CONTRIBUTING.md](https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md).
@@ -518,7 +532,7 @@ For more detailed development guidelines, see [CONTRIBUTING.md](https://github.c
 
 ## License
 
-This project is licensed under the Creative Commons Attribution 4.0 International License - see the [LICENSES/CC-BY-4.0.txt](https://github.com/CTU-SematX/Orion-Nginx/blob/main/LICENSES/CC-BY-4.0.txt) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/CTU-SematX/Orion-Nginx/blob/main/LICENSE) file for details.
 
 ---
 
