@@ -1909,13 +1909,13 @@ Replace <code>TRUSTED_IP</code> with the IP address of your trusted client</p>
 <h3 id="customizing-nginx-configuration">Customizing Nginx Configuration</h3>
 <p>The gateway configuration is located in:</p>
 <ul>
-<li>Main config: <code>orion-ld/nginx/nginx.conf</code></li>
-<li>Gateway rules: <code>orion-ld/nginx/conf.d/gateway.conf</code></li>
-<li>JWT verification: <code>orion-ld/lualib/jwt_verify.lua</code></li>
+<li>Main config: <code>docker/nginx/nginx.conf</code></li>
+<li>Gateway rules: <code>docker/nginx/conf.d/gateway.conf</code></li>
+<li>JWT verification: <code>docker/lualib/jwt_verify.lua</code></li>
 </ul>
 <p>To modify access rules, edit <code>gateway.conf</code> and rebuild the gateway container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>gateway
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>gateway
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker/docker-compose.yml<span class="w"> </span>build<span class="w"> </span>gateway
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker/docker-compose.yml<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>gateway
 </code></pre></div>
 <h2 id="known-issues">Known issues</h2>
 <p><strong>Current Limitations</strong>:</p>
@@ -1979,19 +1979,33 @@ important pieces, etc.</p>
 <p>General instructions on <em>how</em> to contribute should be stated with a link to <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md">CONTRIBUTING</a>.</p>
 <h2 id="development">Development</h2>
 <h3 id="project-structure">Project Structure</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>orion-ld/
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>├── docker-compose.yml          # Multi-container orchestration
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>├── Dockerfile                  # Gateway container build definition
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>├── start.sh                    # Startup script for all services
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>├── lualib/
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>│   └── jwt_verify.lua         # JWT verification logic
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>└── nginx/
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    ├── nginx.conf             # Main Nginx configuration
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    └── conf.d/
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>        └── gateway.conf       # Gateway routing and access control
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Orion-Nginx/
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>├── Makefile                    # Build and management commands
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>├── README.md                   # Main documentation
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>├── README.vi.md                # Vietnamese documentation
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>├── LICENSE                     # Project license
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>├── SECURITY.md                 # Security reporting guidelines
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>├── CODE_OF_CONDUCT.md          # Community guidelines
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>├── CONTRIBUTING.md             # Contribution guidelines
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>├── GOVERNANCE.md               # Project governance
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>├── docker/                     # Docker-related files
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>│   ├── docker-compose.yml      # Multi-container orchestration
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>│   ├── Dockerfile              # Gateway container build definition
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>│   ├── .env.example            # Environment variables template
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>│   ├── lualib/
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>│   │   └── jwt_verify.lua      # JWT verification logic
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>│   └── nginx/
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>│       ├── nginx.conf          # Main Nginx configuration
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>│       └── conf.d/
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>│           └── gateway.conf    # Gateway routing and access control
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>├── docs/                       # MkDocs documentation
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>│   ├── en/                     # English documentation
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>│   └── vi/                     # Vietnamese documentation
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>├── mkdocs.yml                  # MkDocs configuration
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>└── requirements.txt            # Python dependencies for docs
 </code></pre></div>
 <h3 id="modifying-access-control-logic">Modifying Access Control Logic</h3>
-<p>The main access control logic is in <code>nginx/conf.d/gateway.conf</code>:</p>
+<p>The main access control logic is in <code>docker/nginx/conf.d/gateway.conf</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">-- Example: Adding a new allowed method for non-trusted IPs</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">method</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">method</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">method</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;DELETE&quot;</span><span class="w"> </span><span class="kr">then</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="c1">-- Modify this condition to change blocked methods</span>
@@ -2000,7 +2014,7 @@ important pieces, etc.</p>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="kr">end</span>
 </code></pre></div>
 <h3 id="building-custom-gateway-image">Building Custom Gateway Image</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>orion-ld
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>docker
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Build gateway with custom tag</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>gateway<span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">CUSTOM_ARG</span><span class="o">=</span>value
@@ -2021,19 +2035,19 @@ important pieces, etc.</p>
 <h3 id="adding-new-dependencies">Adding New Dependencies</h3>
 <p>To add new Lua libraries:</p>
 <ol>
-<li>Update <code>Dockerfile</code>:</li>
+<li>Update <code>docker/Dockerfile</code>:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">RUN</span><span class="w"> </span>/usr/local/openresty/bin/opm<span class="w"> </span>get<span class="w"> </span>&lt;package-name&gt;
 </code></pre></div>
 <ol>
 <li>Rebuild container:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>gateway
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker/docker-compose.yml<span class="w"> </span>build<span class="w"> </span>gateway
 </code></pre></div>
 <p>For more detailed development guidelines, see <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
 <hr />
 <h2 id="license">License</h2>
-<p>This project is licensed under the Creative Commons Attribution 4.0 International License - see the <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/LICENSES/CC-BY-4.0.txt">LICENSES/CC-BY-4.0.txt</a> file for details.</p>
+<p>This project is licensed under the Apache License 2.0 - see the <a href="https://github.com/CTU-SematX/Orion-Nginx/blob/main/LICENSE">LICENSE</a> file for details.</p>
 <hr />
 <h2 id="maintainers">Maintainers</h2>
 <p>Name and git-account for primary maintainer/s:</p>
