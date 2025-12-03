@@ -1,5 +1,3 @@
-
-
 🌐 [English](./README.md) | Tiếng Việt
 # Orion-Nginx
 
@@ -165,6 +163,9 @@ curl -X PATCH "http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:WeatherObse
   -H "Authorization: Bearer $JWT_TOKEN" \
   -H "Content-Type: application/ld+json" \
   -d '{
+    "@context": [
+      "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ],
     "temperature": {
       "type": "Property",
       "value": 31.0
@@ -230,6 +231,72 @@ const payload = {
 
 const token = jwt.sign(payload, secret, { algorithm: 'HS256' });
 console.log(token);
+```
+
+### Yêu cầu về NGSI-LD Context
+
+Khi sử dụng `application/ld+json` làm `Content-Type`, tất cả các request NGSI-LD **bắt buộc phải có** trường `@context` trong JSON payload. Đây là yêu cầu của đặc tả NGSI-LD.
+
+#### Lỗi Thường gặp
+
+Nếu bạn bỏ qua `@context`, bạn sẽ nhận được lỗi:
+
+```json
+{
+  "type": "https://uri.etsi.org/ngsi-ld/errors/BadRequestData",
+  "title": "@context missing in JSON payload",
+  "detail": "For application/ld+json, the @context must be present in the JSON payload"
+}
+```
+
+#### Giải pháp
+
+Luôn bao gồm trường `@context` ở cấp cao nhất của JSON payload:
+
+```json
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ],
+  "temperature": {
+    "type": "Property",
+    "value": 31.0
+  }
+}
+```
+
+#### Giải pháp thay thế: Sử dụng application/json
+
+Bạn cũng có thể sử dụng `application/json` làm content type và cung cấp context thông qua header `Link`:
+
+```bash
+curl -X PATCH "http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:WeatherObserved:001/attrs" \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "Link: <https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"" \
+  -d '{
+    "temperature": {
+      "type": "Property",
+      "value": 31.0
+    }
+  }'
+```
+
+#### Context Tùy chỉnh
+
+Đối với các thuật ngữ đặc thù theo domain, bạn có thể bao gồm các file context bổ sung:
+
+```json
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    "https://yourdomain.com/contexts/weather-context.jsonld"
+  ],
+  "temperature": {
+    "type": "Property",
+    "value": 31.0
+  }
+}
 ```
 
 ## Kiến trúc
@@ -410,7 +477,7 @@ curl -v http://localhost:8080/version
 # Xác minh trạng thái replica set
 docker exec -it mongo mongosh --eval "rs.status()"
 
-# Khởi tạo lại nếu cần
+# Khởi động lại nếu cần
 ./start.sh
 ```
 

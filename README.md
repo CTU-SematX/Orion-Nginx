@@ -49,7 +49,7 @@ The gateway consists of three main components:
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/CTU-SematX/Orion-Nginx.git
    cd Orion-Nginx
    ```
 
@@ -165,6 +165,9 @@ curl -X PATCH "http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:WeatherObse
   -H "Authorization: Bearer $JWT_TOKEN" \
   -H "Content-Type: application/ld+json" \
   -d '{
+    "@context": [
+      "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ],
     "temperature": {
       "type": "Property",
       "value": 31.0

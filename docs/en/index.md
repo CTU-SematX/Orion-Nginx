@@ -165,6 +165,9 @@ curl -X PATCH "http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:WeatherObse
   -H "Authorization: Bearer $JWT_TOKEN" \
   -H "Content-Type: application/ld+json" \
   -d '{
+    "@context": [
+      "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ],
     "temperature": {
       "type": "Property",
       "value": 31.0
@@ -230,6 +233,72 @@ const payload = {
 
 const token = jwt.sign(payload, secret, { algorithm: 'HS256' });
 console.log(token);
+```
+
+### NGSI-LD Context Requirement
+
+When using `application/ld+json` as the `Content-Type`, all NGSI-LD requests **must include** the `@context` field in the JSON payload. This is a requirement of the NGSI-LD specification.
+
+#### Common Error
+
+If you omit the `@context`, you'll receive an error:
+
+```json
+{
+  "type": "https://uri.etsi.org/ngsi-ld/errors/BadRequestData",
+  "title": "@context missing in JSON payload",
+  "detail": "For application/ld+json, the @context must be present in the JSON payload"
+}
+```
+
+#### Solution
+
+Always include the `@context` field at the top level of your JSON payload:
+
+```json
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ],
+  "temperature": {
+    "type": "Property",
+    "value": 31.0
+  }
+}
+```
+
+#### Alternative: Using application/json
+
+You can also use `application/json` as the content type and provide the context via a `Link` header:
+
+```bash
+curl -X PATCH "http://localhost:8080/ngsi-ld/v1/entities/urn:ngsi-ld:WeatherObserved:001/attrs" \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "Link: <https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"" \
+  -d '{
+    "temperature": {
+      "type": "Property",
+      "value": 31.0
+    }
+  }'
+```
+
+#### Custom Contexts
+
+For domain-specific terms, you can include additional context files:
+
+```json
+{
+  "@context": [
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    "https://yourdomain.com/contexts/weather-context.jsonld"
+  ],
+  "temperature": {
+    "type": "Property",
+    "value": 31.0
+  }
+}
 ```
 
 ## Architecture
