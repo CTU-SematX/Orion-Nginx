@@ -605,10 +605,7 @@ Dự án này được cấp phép theo Giấy phép Apache License 2.0 - xem fi
 
 ## Người duy trì
 
-Tên và git-account cho người duy trì chính:
-
-Ví dụ:
-_Người_duy_trì_
+CTU-SematX Team
 
 ## Tín chỉ và Tham khảo
 

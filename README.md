@@ -541,10 +541,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## Maintainers
 
-Name and git-account for primary maintainer/s:
-
-Example:
-_The_maintainers_
+CTU-SematX Team
 
 ## Credits and References
 
