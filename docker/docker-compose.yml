@@ -2,16 +2,23 @@ services:
   mongo:
     image: mongo:5.0.26  
     container_name: mongo
+    restart: unless-stopped
     command: mongod --quiet --dbpath /data/db --replSet rs --port 27017 --bind_ip 0.0.0.0
     volumes:
       - mongo_volume:/data/db
     ports:
       - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   # TimescaleDB for Mintaka temporal storage
   timescale:
     image: timescale/timescaledb-ha:pg14-latest
     container_name: timescale
+    restart: unless-stopped
     environment:
       - POSTGRES_USER=orion
       - POSTGRES_PASSWORD=orion
@@ -20,13 +27,22 @@ services:
       - "5432:5432"
     volumes:
       - timescale_volume:/home/postgres/pgdata/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orion"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   orion-ld:
     image: fiware/orion-ld:latest
     platform: linux/amd64
     container_name: orion-ld
+    restart: unless-stopped
     depends_on:
-      - mongo
+      mongo:
+        condition: service_started
+      timescale:
+        condition: service_started
     environment:
       - ORIONLD_MONGO_HOST=mongo
       - ORIONLD_MONGO_PORT=27017
@@ -36,9 +52,12 @@ services:
       - ORIONLD_TROE_PORT=5432
       - ORIONLD_TROE_USER=orion
       - ORIONLD_TROE_PWD=orion
-    command: >
-      -dbhost mongo
-      -logLevel DEBUG
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1026/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     ports:
       - "1026:1026"
 
@@ -46,8 +65,10 @@ services:
   mintaka:
     image: fiware/mintaka:0.5.37
     container_name: mintaka
+    restart: unless-stopped
     depends_on:
-      - timescale
+      timescale:
+        condition: service_healthy
     environment:
       - DATASOURCES_DEFAULT_HOST=timescale
       - DATASOURCES_DEFAULT_PORT=5432
@@ -67,8 +88,10 @@ services:
   gateway:
     build: .                   
     container_name: gateway
+    restart: unless-stopped
     depends_on:
-      - orion-ld
+      orion-ld:
+        condition: service_healthy
     ports:
       - "8080:80"
     environment:
@@ -83,9 +106,10 @@ services:
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
+    restart: unless-stopped
     depends_on:
-      - orion-ld
-      - mintaka
+      orion-ld:
+        condition: service_healthy
     ports:
       - "3000:3000"
     environment:

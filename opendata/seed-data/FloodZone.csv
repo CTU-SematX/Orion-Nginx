@@ -1,0 +1,16 @@
+affectedPopulation,areaType,floodSeverity,id,isActive,location,name,observedAt,type,waterDepth
+1233,urban_road,high,urn:ngsi-ld:FloodMonitoring:HCMC:zone-nguyen-huu-canh,True,"10.7915,106.7214",Nguyễn Hữu Cảnh,2025-12-03T22:09:37Z,FloodMonitoring,1.16
+276,urban_road,low,urn:ngsi-ld:FloodMonitoring:HCMC:zone-phu-my-hung,True,"10.7220,106.7015",Phú Mỹ Hưng - Nguyễn Văn Linh,2025-12-08T04:26:12Z,FloodMonitoring,0.77
+717,lowland,high,urn:ngsi-ld:FloodMonitoring:HCMC:zone-binh-chanh,True,"10.6750,106.5950",Bình Chánh - Quốc Lộ 1A,2025-12-06T21:45:15Z,FloodMonitoring,0.40
+538,urban_road,medium,urn:ngsi-ld:FloodMonitoring:HCMC:zone-binh-thanh,True,"10.8025,106.7089",Bình Thạnh - Xô Viết Nghệ Tĩnh,2025-12-05T21:51:10Z,FloodMonitoring,0.43
+451,agricultural,low,urn:ngsi-ld:FloodMonitoring:HCMC:zone-cu-chi,False,"10.9735,106.4930",Củ Chi - Tỉnh Lộ 8,2025-12-03T22:42:37Z,FloodMonitoring,0.12
+468,urban_road,medium,urn:ngsi-ld:FloodMonitoring:HCMC:zone-thu-duc,True,"10.8544,106.7538",Thủ Đức - Võ Văn Ngân,2025-12-05T12:14:18Z,FloodMonitoring,1.58
+840,agricultural,medium,urn:ngsi-ld:FloodMonitoring:HCMC:zone-hoc-mon,True,"10.8873,106.5925",Hóc Môn - Phan Văn Hớn,2025-12-02T07:25:48Z,FloodMonitoring,1.49
+940,urban_road,medium,urn:ngsi-ld:FloodMonitoring:HCMC:zone-tan-binh,True,"10.8018,106.6542",Tân Bình - Cộng Hòa,2025-12-03T08:47:46Z,FloodMonitoring,1.27
+456,residential,high,urn:ngsi-ld:FloodMonitoring:HCMC:zone-thao-dien,True,"10.8048,106.7385",Thảo Điền,2025-12-07T12:46:07Z,FloodMonitoring,1.27
+334,highway,medium,urn:ngsi-ld:FloodMonitoring:HCMC:zone-an-phu,True,"10.7940,106.7470",An Phú - Xa Lộ Hà Nội,2025-12-04T07:40:42Z,FloodMonitoring,0.71
+124,urban_road,medium,urn:ngsi-ld:FloodMonitoring:HCMC:zone-go-vap,True,"10.8380,106.6650",Gò Vấp - Nguyễn Oanh,2025-12-04T15:01:32Z,FloodMonitoring,0.43
+948,canal_side,medium,urn:ngsi-ld:FloodMonitoring:HCMC:zone-tan-phu,True,"10.7917,106.6282",Tân Phú - Âu Cơ,2025-12-06T11:16:06Z,FloodMonitoring,0.94
+621,canal_side,high,urn:ngsi-ld:FloodMonitoring:HCMC:zone-quan6,True,"10.7470,106.6352",Quận 6 - Hậu Giang,2025-12-07T09:27:24Z,FloodMonitoring,0.77
+936,lowland,high,urn:ngsi-ld:FloodMonitoring:HCMC:zone-nha-be,True,"10.6940,106.7050",Nhà Bè - Lê Văn Lương,2025-12-03T20:02:18Z,FloodMonitoring,0.75
+588,residential,high,urn:ngsi-ld:FloodMonitoring:HCMC:zone-binh-tan,False,"10.7660,106.6035",Bình Tân - Tên Lửa,2025-12-09T04:51:44Z,FloodMonitoring,2.22
