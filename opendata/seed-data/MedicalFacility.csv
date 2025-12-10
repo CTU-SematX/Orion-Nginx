@@ -1,0 +1,13 @@
+availableBeds,bedCapacity,id,location,name,observedAt,type
+107,948,urn:ngsi-ld:Building:HCMC:hospital-general,"10.8054,106.6985",HCMC General Hospital,2025-12-05T09:10:31Z,Building
+205,799,urn:ngsi-ld:Building:HCMC:hospital-cho-ray,"10.7851,106.6700",Cho Ray Hospital,2025-12-06T10:33:15Z,Building
+918,1064,urn:ngsi-ld:Building:HCMC:hospital-115,"10.8187,106.6666",115 People's Hospital,2025-12-02T10:47:49Z,Building
+1077,1767,urn:ngsi-ld:Building:HCMC:hospital-umc,"10.7276,106.7123",University Medical Center,2025-12-05T06:10:23Z,Building
+907,1893,urn:ngsi-ld:Building:HCMC:hospital-phu-nhuan,"10.8025,106.6958",Phu Nhuan Hospital,2025-12-03T09:32:52Z,Building
+33,295,urn:ngsi-ld:Building:HCMC:clinic-binh-thanh,"10.7871,106.6702",Binh Thanh Clinic,2025-12-07T12:06:37Z,Building
+864,1887,urn:ngsi-ld:Building:HCMC:medical-center-d1,"10.7320,106.7194",District 1 Medical Center,2025-12-03T20:23:33Z,Building
+493,809,urn:ngsi-ld:Building:HCMC:hospital-tan-binh,"10.7768,106.6742",Tan Binh Hospital,2025-12-07T16:17:04Z,Building
+1144,1363,urn:ngsi-ld:Building:HCMC:hospital-children,"10.8122,106.7064",City Children's Hospital,2025-12-05T20:34:12Z,Building
+59,359,urn:ngsi-ld:Building:HCMC:heart-institute,"10.8085,106.7078",Heart Institute,2025-12-02T23:36:52Z,Building
+559,581,urn:ngsi-ld:Building:HCMC:hospital-thu-duc,"10.7697,106.6954",Thu Duc Hospital,2025-12-08T12:32:52Z,Building
+14,162,urn:ngsi-ld:Building:HCMC:medical-center-d7,"10.8136,106.6577",District 7 Medical Center,2025-12-07T02:47:59Z,Building

@@ -2,41 +2,127 @@ services:
   mongo:
     image: mongo:5.0.26  
     container_name: mongo
+    restart: unless-stopped
     command: mongod --quiet --dbpath /data/db --replSet rs --port 27017 --bind_ip 0.0.0.0
     volumes:
       - mongo_volume:/data/db
     ports:
       - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # TimescaleDB for Mintaka temporal storage
+  timescale:
+    image: timescale/timescaledb-ha:pg14-latest
+    container_name: timescale
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=orion
+      - POSTGRES_PASSWORD=orion
+      - POSTGRES_DB=orion
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescale_volume:/home/postgres/pgdata/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orion"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   orion-ld:
     image: fiware/orion-ld:latest
     platform: linux/amd64
     container_name: orion-ld
+    restart: unless-stopped
     depends_on:
-      - mongo
+      mongo:
+        condition: service_started
+      timescale:
+        condition: service_started
     environment:
       - ORIONLD_MONGO_HOST=mongo
       - ORIONLD_MONGO_PORT=27017
       - ORIONLD_LOG_LEVEL=INFO
-    command: >
-      -dbhost mongo
-      -logLevel DEBUG
+      - ORIONLD_TROE=TRUE
+      - ORIONLD_TROE_HOST=timescale
+      - ORIONLD_TROE_PORT=5432
+      - ORIONLD_TROE_USER=orion
+      - ORIONLD_TROE_PWD=orion
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1026/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     ports:
       - "1026:1026"
+
+  # Mintaka - Temporal API for NGSI-LD
+  mintaka:
+    image: fiware/mintaka:0.5.37
+    container_name: mintaka
+    restart: unless-stopped
+    depends_on:
+      timescale:
+        condition: service_healthy
+    environment:
+      - DATASOURCES_DEFAULT_HOST=timescale
+      - DATASOURCES_DEFAULT_PORT=5432
+      - DATASOURCES_DEFAULT_DATABASE=orion
+      - DATASOURCES_DEFAULT_USERNAME=orion
+      - DATASOURCES_DEFAULT_PASSWORD=orion
+      - ENDPOINTS_INFO_ENABLED=true
+      - ENDPOINTS_INFO_SENSITIVE=false
+      - BASEPATH=/
+      # Disable micrometer metrics to avoid cgroup issue
+      - MICRONAUT_METRICS_ENABLED=false
+    ports:
+      - "8083:8080"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
   gateway:
     build: .                   
     container_name: gateway
+    restart: unless-stopped
     depends_on:
-      - orion-ld
+      orion-ld:
+        condition: service_healthy
     ports:
       - "8080:80"
     environment:
       JWT_SECRET: ${JWT_SECRET}
-      TRUSTED_IP: ${TRUSTED_IP}
+      TRUSTED_IPS: ${TRUSTED_IPS}
+      AUTHENTICATION_ENABLED: ${AUTHENTICATION_ENABLED}
     volumes:
       - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
       - ./nginx/conf.d:/usr/local/openresty/nginx/conf/conf.d:ro
 
+  # Grafana with NGSI-LD datasource plugin
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    depends_on:
+      orion-ld:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=ngsild-grafana-datasource
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_SERVER_DOMAIN=localhost
+      - GF_INSTALL_PLUGINS=https://github.com/bfi-de/ngsild-grafana-datasource/releases/download/v1.2.2/ngsild-grafana-datasource-1.2.2.zip;ngsild-grafana-datasource
+    volumes:
+      - grafana_volume:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+
 volumes:
   mongo_volume:
+  timescale_volume:
+  grafana_volume:

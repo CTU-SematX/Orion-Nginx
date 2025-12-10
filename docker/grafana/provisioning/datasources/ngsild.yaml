@@ -1,0 +1,17 @@
+# Grafana datasource configuration for NGSI-LD
+apiVersion: 1
+
+datasources:
+  - name: NGSI-LD
+    type: ngsild-grafana-datasource
+    access: proxy
+    url: http://orion-ld:1026
+    isDefault: true
+    editable: true
+    jsonData:
+      # Context Broker URL (Orion-LD)
+      brokerUrl: http://orion-ld:1026
+      # Temporal API URL (Mintaka)
+      timeseriesUrl: http://mintaka:8080
+      # Context URL - customize based on your NGSI-LD context
+      contextUrl: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld

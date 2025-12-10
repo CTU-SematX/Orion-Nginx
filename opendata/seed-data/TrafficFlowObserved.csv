@@ -1,0 +1,21 @@
+averageVehicleSpeed,congestionIndex,id,location,observedAt,roadName,type,vehicleCount
+5,0.457,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-nguyen-tat-thanh,"10.7585,106.7040",2025-12-03T14:39:43Z,Nguyễn Tất Thành,TrafficFlowObserved,191
+49,0.636,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-calmette,"10.7760,106.6985",2025-12-07T16:03:25Z,Calmette,TrafficFlowObserved,166
+11,0.064,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-thi-nghe,"10.7880,106.7015",2025-12-06T18:18:34Z,Cầu Thị Nghè 1,TrafficFlowObserved,69
+31,0.806,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-nguyen-tri-phuong,"10.7625,106.6695",2025-12-09T00:54:12Z,Nguyễn Tri Phương,TrafficFlowObserved,83
+12,0.592,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-thanh-thai,"10.7720,106.6665",2025-12-06T15:41:03Z,Thành Thái,TrafficFlowObserved,108
+21,0.491,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-ly-thai-to,"10.7690,106.6820",2025-12-04T03:34:45Z,Lý Thái Tổ,TrafficFlowObserved,74
+14,0.232,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-nguyen-duc-canh,"10.7450,106.7080",2025-12-04T09:05:03Z,Đường Nguyễn Đức Cảnh,TrafficFlowObserved,20
+54,0.517,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-tran-van-tra,"10.7520,106.6950",2025-12-04T19:07:02Z,Đường Trần Văn Trà,TrafficFlowObserved,64
+27,0.943,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-thay-tieu,"10.7350,106.7120",2025-12-06T21:20:58Z,Cầu Thầy Tiêu,TrafficFlowObserved,183
+27,0.783,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-da-khoa,"10.7420,106.7085",2025-12-06T17:58:43Z,Cầu Đa Khoa,TrafficFlowObserved,117
+42,0.506,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-nguyen-van-ba,"10.8520,106.7565",2025-12-04T16:52:39Z,Nguyễn Văn Bá,TrafficFlowObserved,179
+26,0.177,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-duong-so-5,"10.7550,106.6980",2025-12-02T16:55:30Z,Đường số 5,TrafficFlowObserved,199
+14,0.729,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-tam-binh,"10.8480,106.7620",2025-12-10T02:25:46Z,Tam Bình,TrafficFlowObserved,189
+42,0.858,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-dang-van-bi,"10.8515,106.7545",2025-12-07T04:01:58Z,Đặng Văn Bi,TrafficFlowObserved,47
+19,0.205,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-binh-phu,"10.7580,106.6580",2025-12-07T10:09:59Z,Cầu Bình Phú,TrafficFlowObserved,93
+29,0.632,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-tay-hoa,"10.8420,106.7480",2025-12-03T08:42:13Z,Tây Hòa,TrafficFlowObserved,94
+50,0.742,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-ung-van-khiem,"10.8085,106.7165",2025-12-03T04:31:22Z,Ung Văn Khiêm,TrafficFlowObserved,92
+53,0.292,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-thanh-da,"10.8120,106.7230",2025-12-05T02:48:49Z,Cầu Kinh Thanh Đa,TrafficFlowObserved,136
+47,0.207,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-binh-trieu,"10.8185,106.7210",2025-12-07T08:08:03Z,Cầu Bình Triệu 1,TrafficFlowObserved,13
+29,0.663,urn:ngsi-ld:TrafficFlowObserved:HCMC:road-pho-quang,"10.7940,106.6660",2025-12-05T05:52:38Z,Phổ Quang,TrafficFlowObserved,159
