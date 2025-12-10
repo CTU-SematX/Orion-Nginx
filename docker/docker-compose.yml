@@ -8,6 +8,19 @@ services:
     ports:
       - "27017:27017"
 
+  # TimescaleDB for Mintaka temporal storage
+  timescale:
+    image: timescale/timescaledb-ha:pg14-latest
+    container_name: timescale
+    environment:
+      - POSTGRES_USER=orion
+      - POSTGRES_PASSWORD=orion
+      - POSTGRES_DB=orion
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescale_volume:/home/postgres/pgdata/data
+
   orion-ld:
     image: fiware/orion-ld:latest
     platform: linux/amd64
@@ -18,11 +31,38 @@ services:
       - ORIONLD_MONGO_HOST=mongo
       - ORIONLD_MONGO_PORT=27017
       - ORIONLD_LOG_LEVEL=INFO
+      - ORIONLD_TROE=TRUE
+      - ORIONLD_TROE_HOST=timescale
+      - ORIONLD_TROE_PORT=5432
+      - ORIONLD_TROE_USER=orion
+      - ORIONLD_TROE_PWD=orion
     command: >
       -dbhost mongo
       -logLevel DEBUG
     ports:
       - "1026:1026"
+
+  # Mintaka - Temporal API for NGSI-LD
+  mintaka:
+    image: fiware/mintaka:0.5.37
+    container_name: mintaka
+    depends_on:
+      - timescale
+    environment:
+      - DATASOURCES_DEFAULT_HOST=timescale
+      - DATASOURCES_DEFAULT_PORT=5432
+      - DATASOURCES_DEFAULT_DATABASE=orion
+      - DATASOURCES_DEFAULT_USERNAME=orion
+      - DATASOURCES_DEFAULT_PASSWORD=orion
+      - ENDPOINTS_INFO_ENABLED=true
+      - ENDPOINTS_INFO_SENSITIVE=false
+      - BASEPATH=/
+      # Disable micrometer metrics to avoid cgroup issue
+      - MICRONAUT_METRICS_ENABLED=false
+    ports:
+      - "8083:8080"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
   gateway:
     build: .                   
@@ -39,5 +79,26 @@ services:
       - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
       - ./nginx/conf.d:/usr/local/openresty/nginx/conf/conf.d:ro
 
+  # Grafana with NGSI-LD datasource plugin
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    depends_on:
+      - orion-ld
+      - mintaka
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=ngsild-grafana-datasource
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_SERVER_DOMAIN=localhost
+      - GF_INSTALL_PLUGINS=https://github.com/bfi-de/ngsild-grafana-datasource/releases/download/v1.2.2/ngsild-grafana-datasource-1.2.2.zip;ngsild-grafana-datasource
+    volumes:
+      - grafana_volume:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+
 volumes:
   mongo_volume:
+  timescale_volume:
+  grafana_volume:
