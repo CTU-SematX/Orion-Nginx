@@ -20,9 +20,10 @@ help: ## Display this help message
 
 setup: ## Create .env file with default values
 	@if [ ! -f $(DOCKER_DIR)/.env ]; then \
-		echo "JWT_SECRET=your-secret-key-here" > $(DOCKER_DIR)/.env; \
-		echo "TRUSTED_IP=172.18.0.1" >> $(DOCKER_DIR)/.env; \
-		echo "$(GREEN).env file created at $(DOCKER_DIR)/.env. Please update JWT_SECRET and TRUSTED_IP$(NC)"; \
+		echo "AUTHENTICATION_ENABLED=false" > $(DOCKER_DIR)/.env; \
+		echo "JWT_SECRET=your-secret-key-here" >> $(DOCKER_DIR)/.env; \
+		echo "TRUSTED_IPS=127.0.0.1,172.18.0.1" >> $(DOCKER_DIR)/.env; \
+		echo "$(GREEN).env file created at $(DOCKER_DIR)/.env. Please update JWT_SECRET and TRUSTED_IPS$(NC)"; \
 	else \
 		echo "$(YELLOW).env file already exists$(NC)"; \
 	fi

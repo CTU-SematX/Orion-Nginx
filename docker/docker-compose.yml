@@ -33,7 +33,8 @@ services:
       - "8080:80"
     environment:
       JWT_SECRET: ${JWT_SECRET}
-      TRUSTED_IP: ${TRUSTED_IP}
+      TRUSTED_IPS: ${TRUSTED_IPS}
+      AUTHENTICATION_ENABLED: ${AUTHENTICATION_ENABLED}
     volumes:
       - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
       - ./nginx/conf.d:/usr/local/openresty/nginx/conf/conf.d:ro
